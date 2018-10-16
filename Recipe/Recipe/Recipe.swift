@@ -9,14 +9,8 @@
 import UIKit
 import Foundation
 
-enum MeasurementUnits {
+enum Categories {
     
-}
-
-struct Ingredient {
-    var name: String
-    var quantity: Double
-    var units: MeasurementUnits
 }
 
 struct Recipe {
@@ -24,4 +18,6 @@ struct Recipe {
     var ingredients: [Ingredient]
     var instructions: [String]
     var image: UIImage
+    var rating: Double
+    var categories: [Categories]
 }
