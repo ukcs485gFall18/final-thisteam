@@ -10,7 +10,6 @@ import Foundation
 
 struct Recipe {
     var name: String
-    var author: [String]
     var ingredients: [String]
     var instructions: [String]
 }
