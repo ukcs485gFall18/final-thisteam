@@ -15,6 +15,6 @@ enum MeasurementUnits {
 struct Ingredient {
     var name: String
     var quantity: Double
-    var units: MeasurementUnits
+    var units: MeasurementUnits?
     var expirationDate: Date
 }
