@@ -10,11 +10,14 @@ import UIKit
 import Foundation
 
 enum Categories {
-    
+  case vegetarian, vegan, breakfast, brunch, lunch, dinner, italian, asian, american, mediterranean
 }
 
 struct Recipe {
+    var id: Int
     var name: String
+    var prepTime: Double
+    var cookTime: Double
     var ingredients: [Ingredient]
     var instructions: [String]
     var image: UIImage

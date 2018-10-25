@@ -80,6 +80,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6620F1972182525F00A97124 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				664D05C62176772100F42D88 /* Recipe.swift */,
+				664D05CA21767CEB00F42D88 /* Ingredient.swift */,
+				664D05C82176773400F42D88 /* Pantry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6620F198218252B800A97124 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEF0E30D216FECA3008C33E2 /* AppDelegate.swift */,
+				FEF0E316216FECA5008C33E2 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FEF0E301216FECA3008C33E2 = {
 			isa = PBXGroup;
 			children = (
@@ -103,14 +122,11 @@
 		FEF0E30C216FECA3008C33E2 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
-				FEF0E30D216FECA3008C33E2 /* AppDelegate.swift */,
+				6620F1972182525F00A97124 /* Model */,
+				6620F198218252B800A97124 /* Supporting Files */,
 				FEF0E30F216FECA3008C33E2 /* ViewController.swift */,
-				664D05C62176772100F42D88 /* Recipe.swift */,
-				664D05CA21767CEB00F42D88 /* Ingredient.swift */,
-				664D05C82176773400F42D88 /* Pantry.swift */,
 				FEF0E311216FECA3008C33E2 /* Main.storyboard */,
 				FEF0E314216FECA5008C33E2 /* Assets.xcassets */,
-				FEF0E316216FECA5008C33E2 /* LaunchScreen.storyboard */,
 				FEF0E319216FECA5008C33E2 /* Info.plist */,
 			);
 			path = Recipe;
@@ -445,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
