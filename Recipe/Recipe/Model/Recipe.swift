@@ -20,7 +20,7 @@ struct Recipe {
     var cookTime: Double
     var ingredients: [Ingredient]
     var instructions: [String]
-    var image: UIImage
+    var image: UIImage?
     var rating: Double
-    var categories: [Categories]
+    var categories: [Categories]?
 }

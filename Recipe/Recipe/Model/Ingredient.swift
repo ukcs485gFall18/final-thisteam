@@ -9,12 +9,12 @@
 import Foundation
 
 enum MeasurementUnits {
-    
+    case oz, lbs, tsp, tbsp, cup, gal
 }
 
 struct Ingredient {
     var name: String
     var quantity: Double
     var units: MeasurementUnits?
-    var expirationDate: Date
+    var expirationDate: Date?
 }

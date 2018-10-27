@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6620F19A218252FD00A97124 /* ModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6620F199218252FD00A97124 /* ModelDemo.swift */; };
 		664D05C72176772100F42D88 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05C62176772100F42D88 /* Recipe.swift */; };
-		664D05C92176773400F42D88 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05C82176773400F42D88 /* Pantry.swift */; };
 		664D05CB21767CEB00F42D88 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05CA21767CEB00F42D88 /* Ingredient.swift */; };
 		FEDC384921825E1600A00572 /* CookbookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */; };
 		FEF0E30E216FECA3008C33E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF0E30D216FECA3008C33E2 /* AppDelegate.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		6620F199218252FD00A97124 /* ModelDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDemo.swift; sourceTree = "<group>"; };
 		664D05C62176772100F42D88 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		664D05C82176773400F42D88 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		664D05CA21767CEB00F42D88 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookbookTableViewCell.swift; sourceTree = "<group>"; };
 		FEF0E30A216FECA3008C33E2 /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +87,6 @@
 			children = (
 				664D05C62176772100F42D88 /* Recipe.swift */,
 				664D05CA21767CEB00F42D88 /* Ingredient.swift */,
-				664D05C82176773400F42D88 /* Pantry.swift */,
 				6620F199218252FD00A97124 /* ModelDemo.swift */,
 			);
 			path = Model;
@@ -288,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				664D05C72176772100F42D88 /* Recipe.swift in Sources */,
-				664D05C92176773400F42D88 /* Pantry.swift in Sources */,
 				6620F19A218252FD00A97124 /* ModelDemo.swift in Sources */,
 				664D05CB21767CEB00F42D88 /* Ingredient.swift in Sources */,
 				FEDC384921825E1600A00572 /* CookbookTableViewCell.swift in Sources */,
