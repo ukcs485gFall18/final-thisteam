@@ -6,12 +6,10 @@
 //  Copyright © 2018 Jones, Caitlin N. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class myPantryCell : UITableViewCell{
     
     @IBOutlet weak var cellLabel:UILabel!
-    
     
 }
