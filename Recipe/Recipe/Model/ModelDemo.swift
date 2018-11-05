@@ -102,3 +102,5 @@ var testRecipe3 = Recipe(
     rating: 3.0,
     categories: nil
 )
+
+var CookbookList = [testRecipe1,testRecipe2,testRecipe3]

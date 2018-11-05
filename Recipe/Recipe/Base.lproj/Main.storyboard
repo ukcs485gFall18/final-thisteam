@@ -60,7 +60,7 @@
         <!--Cookbook-->
         <scene sceneID="I5E-Lm-6qB">
             <objects>
-                <tableViewController title="Cookbook" id="Y7r-5a-RUw" sceneMemberID="viewController">
+                <tableViewController title="Cookbook" id="Y7r-5a-RUw" customClass="CookbookTableViewController" customModule="Recipe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tun-Ga-0sE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +73,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-kR-28t">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultRecipeImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-kR-28t">
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -312,4 +312,7 @@
             <point key="canvasLocation" x="31" y="46"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultRecipeImage.png" width="418" height="300"/>
+    </resources>
 </document>

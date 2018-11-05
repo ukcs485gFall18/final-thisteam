@@ -13,6 +13,8 @@
 		D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */; };
 		D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */; };
 		D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459921869BB6005CE7F5 /* pantryViewController.swift */; };
+		FE38C890218FDD20002603B3 /* CookbookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */; };
+		FE38C892218FE993002603B3 /* defaultRecipeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FE38C891218FE993002603B3 /* defaultRecipeImage.png */; };
 		FEDC384921825E1600A00572 /* CookbookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */; };
 		FEF0E30E216FECA3008C33E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF0E30D216FECA3008C33E2 /* AppDelegate.swift */; };
 		FEF0E310216FECA3008C33E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF0E30F216FECA3008C33E2 /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 		D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmyPantryViewController.swift; sourceTree = "<group>"; };
 		D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryCellViewController.swift; sourceTree = "<group>"; };
 		D8C1459921869BB6005CE7F5 /* pantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewController.swift; sourceTree = "<group>"; };
+		FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookbookTableViewController.swift; sourceTree = "<group>"; };
+		FE38C891218FE993002603B3 /* defaultRecipeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultRecipeImage.png; path = ../../../../../Downloads/defaultRecipeImage.png; sourceTree = "<group>"; };
 		FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookbookTableViewCell.swift; sourceTree = "<group>"; };
 		FEF0E30A216FECA3008C33E2 /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF0E30D216FECA3008C33E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				664D05C62176772100F42D88 /* Recipe.swift */,
 				664D05CA21767CEB00F42D88 /* Ingredient.swift */,
 				6620F199218252FD00A97124 /* ModelDemo.swift */,
+				FE38C891218FE993002603B3 /* defaultRecipeImage.png */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 				6620F198218252B800A97124 /* Supporting Files */,
 				FEF0E30F216FECA3008C33E2 /* ViewController.swift */,
 				FEF0E311216FECA3008C33E2 /* Main.storyboard */,
+				FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */,
 				FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */,
 				FEF0E314216FECA5008C33E2 /* Assets.xcassets */,
 				FEF0E319216FECA5008C33E2 /* Info.plist */,
@@ -268,6 +274,7 @@
 			files = (
 				FEF0E318216FECA5008C33E2 /* LaunchScreen.storyboard in Resources */,
 				FEF0E315216FECA5008C33E2 /* Assets.xcassets in Resources */,
+				FE38C892218FE993002603B3 /* defaultRecipeImage.png in Resources */,
 				FEF0E313216FECA3008C33E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +306,7 @@
 				FEDC384921825E1600A00572 /* CookbookTableViewCell.swift in Sources */,
 				D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */,
 				FEF0E310216FECA3008C33E2 /* ViewController.swift in Sources */,
+				FE38C890218FDD20002603B3 /* CookbookTableViewController.swift in Sources */,
 				FEF0E30E216FECA3008C33E2 /* AppDelegate.swift in Sources */,
 				D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */,
 				D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */,
