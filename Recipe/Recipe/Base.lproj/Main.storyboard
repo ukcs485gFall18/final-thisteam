@@ -427,6 +427,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultRecipeImage.png" width="418" height="300"/>
+        <image name="defaultRecipeImage.png" width="836" height="538"/>
     </resources>
 </document>
