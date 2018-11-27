@@ -73,7 +73,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultRecipeImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-kR-28t">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-kR-28t">
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -427,6 +427,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultRecipeImage.png" width="836" height="538"/>
+        <image name="defaultImage" width="1200" height="1200"/>
     </resources>
 </document>
