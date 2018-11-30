@@ -10,6 +10,7 @@
 		6620F19A218252FD00A97124 /* ModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6620F199218252FD00A97124 /* ModelDemo.swift */; };
 		664D05C72176772100F42D88 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05C62176772100F42D88 /* Recipe.swift */; };
 		664D05CB21767CEB00F42D88 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05CA21767CEB00F42D88 /* Ingredient.swift */; };
+		668981B021B0644E00F8E536 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 668981AF21B0644E00F8E536 /* libsqlite3.tbd */; };
 		D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */; };
 		D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */; };
 		D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459921869BB6005CE7F5 /* pantryViewController.swift */; };
@@ -47,6 +48,7 @@
 		6620F199218252FD00A97124 /* ModelDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDemo.swift; sourceTree = "<group>"; };
 		664D05C62176772100F42D88 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		664D05CA21767CEB00F42D88 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		668981AF21B0644E00F8E536 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmyPantryViewController.swift; sourceTree = "<group>"; };
 		D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryCellViewController.swift; sourceTree = "<group>"; };
 		D8C1459921869BB6005CE7F5 /* pantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668981B021B0644E00F8E536 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +116,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		668981AE21B0644E00F8E536 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				668981AF21B0644E00F8E536 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FEF0E301216FECA3008C33E2 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +131,7 @@
 				FEF0E321216FECA5008C33E2 /* RecipeTests */,
 				FEF0E32C216FECA5008C33E2 /* RecipeUITests */,
 				FEF0E30B216FECA3008C33E2 /* Products */,
+				668981AE21B0644E00F8E536 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
