@@ -10,7 +10,6 @@
 		6620F19A218252FD00A97124 /* ModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6620F199218252FD00A97124 /* ModelDemo.swift */; };
 		664D05C72176772100F42D88 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05C62176772100F42D88 /* Recipe.swift */; };
 		664D05CB21767CEB00F42D88 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D05CA21767CEB00F42D88 /* Ingredient.swift */; };
-		668981B021B0644E00F8E536 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 668981AF21B0644E00F8E536 /* libsqlite3.tbd */; };
 		D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */; };
 		D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */; };
 		D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459921869BB6005CE7F5 /* pantryViewController.swift */; };
@@ -76,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				668981B021B0644E00F8E536 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
