@@ -49,7 +49,6 @@
 		664D05C62176772100F42D88 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		664D05CA21767CEB00F42D88 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		665D731321B1E24200C9E17E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		668981AF21B0644E00F8E536 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmyPantryViewController.swift; sourceTree = "<group>"; };
 		D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryCellViewController.swift; sourceTree = "<group>"; };
 		D8C1459921869BB6005CE7F5 /* pantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewController.swift; sourceTree = "<group>"; };
@@ -116,14 +115,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		668981AE21B0644E00F8E536 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				668981AF21B0644E00F8E536 /* libsqlite3.tbd */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		FEF0E301216FECA3008C33E2 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +123,6 @@
 				FEF0E321216FECA5008C33E2 /* RecipeTests */,
 				FEF0E32C216FECA5008C33E2 /* RecipeUITests */,
 				FEF0E30B216FECA3008C33E2 /* Products */,
-				668981AE21B0644E00F8E536 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,7 +503,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UKy.iOS.Recipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Recipe/Model/Recipe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,7 +523,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = UKy.iOS.Recipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Recipe/Model/Recipe-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
