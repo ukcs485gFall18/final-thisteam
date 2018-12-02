@@ -29,6 +29,9 @@ class ViewRecipeViewController: UIViewController{
         self.title = recipeName
         //prevents controls from getting shoved under the navigation bar
         self.navigationController?.navigationBar.isTranslucent = false;
+        
+        
+        
     }
     
     
