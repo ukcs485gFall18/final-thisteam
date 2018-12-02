@@ -17,4 +17,5 @@ struct Ingredient {
     var quantity: Double
     var units: MeasurementUnits?
     var expirationDate: Date?
+    //var inPantry: Bool
 }
