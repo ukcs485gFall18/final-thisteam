@@ -343,13 +343,18 @@
         <!--Navigation Controller-->
         <scene sceneID="2gu-6M-f0w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UOc-lB-WAk" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="UOc-lB-WAk" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Frc-Qx-pot">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tHd-9O-Dmc">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Jfg-jj-8yO"/>
                     </connections>

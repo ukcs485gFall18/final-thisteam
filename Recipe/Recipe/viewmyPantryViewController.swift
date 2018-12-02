@@ -16,6 +16,8 @@ class viewmyPantryViewController : UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //prevents controls from getting shoved under the navigation bar
+        self.navigationController?.navigationBar.isTranslucent = false;
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
