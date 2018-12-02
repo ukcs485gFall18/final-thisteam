@@ -4,7 +4,9 @@
 //
 //  Created by Jones, Caitlin on 11/4/18.
 //  Copyright © 2018 Jones, Caitlin N. All rights reserved.
-//https://www.youtube.com/watch?v=-tRQmVkrfHc
+// https://www.youtube.com/watch?v=-tRQmVkrfHc
+// https://stackoverflow.com/questions/26158768/how-to-get-textlabel-of-selected-row-in-swift
+// https://stackoverflow.com/questions/40945889/how-to-send-information-from-custom-cells-to-a-view-controller
 
 import Foundation
 import UIKit
@@ -32,6 +34,20 @@ class CookbookTableViewController : UITableViewController {
             cell.CellImage.image = CookbookList[indexPath.row].image
         }
         
+        //populate the tableView
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if the segue is going to ViewRecipeViewController, send the currentCell's recipe name
+        if segue.destination is ViewRecipeViewController{
+            let view = segue.destination as? ViewRecipeViewController
+            
+            //find out which cell was clicked
+            let currCell = tableView.cellForRow(at: tableView.indexPathForSelectedRow!) as! CookbookTableViewCell
+
+            view?.recipeName = currCell.CellLabel.text!
+        }
+    }
+    
 }//End class
