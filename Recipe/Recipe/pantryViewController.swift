@@ -5,7 +5,7 @@
 //  Created by Ryan Gaines on 10/28/18.
 //  Copyright © 2018 Jones, Caitlin N. All rights reserved.
 //https://stackoverflow.com/questions/40484182/ios-swift-3-uidatepicker
-//
+//https://stackoverflow.com/questions/43148864/how-to-get-a-push-notification-at-a-set-time-swift-3
 
 import Foundation
 import UIKit
@@ -28,6 +28,7 @@ class pantryViewController : UIViewController{
         let cal = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let year = cal.year, let month = cal.month, let day = cal.day{
             expirationLabel.text = "Expiration Date:\t\t\t\t\(month)/\(day)/\(year)"
+
         }
         
     }
