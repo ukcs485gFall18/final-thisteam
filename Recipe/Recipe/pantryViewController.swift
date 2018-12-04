@@ -29,7 +29,12 @@ class pantryViewController : UIViewController{
         if let year = cal.year, let month = cal.month, let day = cal.day{
             expirationLabel.text = "Expiration Date:\t\t\t\t\(month)/\(day)/\(year)"
         }
-
+        
+    }
+    
+    
+    func prepareForNotfication(){
+        
     }
     
     
