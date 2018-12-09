@@ -18,6 +18,8 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var pantryQuantity:UIPickerView!
     @IBOutlet weak var pantryItem:UITextField!
     
+    var model:pantryModel = pantryModel()
+    
     // https://en.wikipedia.org/wiki/Cooking_weights_and_measures
     private var pantryData:[[String]] = [[String]]()
     
@@ -91,12 +93,14 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
         let third = pantryData[2][pantryQuantity.selectedRow(inComponent: 2) % 100]
         let quantity = pantryData[3][pantryQuantity.selectedRow(inComponent: 3)]
         let amount = Double(first)! + Double(third)!/100
-        let cal = Calendar.current.dateComponents([.year,.month, .day], from: self.expireDate.date)
+        //let cal = Calendar.current.dateComponents([.year,.month, .day], from: self.expireDate.date)
+        let cal = self.expireDate.date
         if (saveExpire.isOn){
-            //SAVE TO MODEL WITH DATE
+            self.model.saveItem(name: name!, amount: amount, measure: quantity, date: cal)
+            
         }
         else{
-            //SAVE TO MODEL WITHOUT DATE
+            self.model.saveItem(name: name!, amount: amount, measure: quantity, date: nil)
         }
         let alert = UIAlertController(title: "Save Status", message: "Successfully saved \(name!) to the pantry", preferredStyle: .alert)
         let doneAction: UIAlertAction = UIAlertAction(title:"Okay", style: .default){ (alertAction) -> Void in self.dismiss(animated: true, completion: nil)
