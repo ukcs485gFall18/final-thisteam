@@ -473,9 +473,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2fA-xN-X3v"/>
                     </view>
-                    <connections>
-                        <segue destination="DnT-CU-Y11" kind="showDetail" identifier="test" id="BG5-fy-Lle"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1d-gz-3OU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -504,7 +501,4 @@
     <resources>
         <image name="defaultImage" width="1200" height="1200"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="BG5-fy-Lle"/>
-    </inferredMetricsTieBreakers>
 </document>
