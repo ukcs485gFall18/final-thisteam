@@ -15,6 +15,7 @@
 		D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */; };
 		D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */; };
 		D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459921869BB6005CE7F5 /* pantryViewController.swift */; };
+		FE34C16321BDE7ED004F9804 /* ViewRecipeTableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34C16221BDE7ED004F9804 /* ViewRecipeTableCells.swift */; };
 		FE38C890218FDD20002603B3 /* CookbookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */; };
 		FE38C898218FFB58002603B3 /* ViewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C897218FFB58002603B3 /* ViewRecipeViewController.swift */; };
 		FE38C89A21900176002603B3 /* InstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C89921900176002603B3 /* InstructionStepViewController.swift */; };
@@ -56,6 +57,7 @@
 		D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmyPantryViewController.swift; sourceTree = "<group>"; };
 		D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryCellViewController.swift; sourceTree = "<group>"; };
 		D8C1459921869BB6005CE7F5 /* pantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewController.swift; sourceTree = "<group>"; };
+		FE34C16221BDE7ED004F9804 /* ViewRecipeTableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecipeTableCells.swift; sourceTree = "<group>"; };
 		FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookbookTableViewController.swift; sourceTree = "<group>"; };
 		FE38C897218FFB58002603B3 /* ViewRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecipeViewController.swift; sourceTree = "<group>"; };
 		FE38C89921900176002603B3 /* InstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionStepViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				FEF0E311216FECA3008C33E2 /* Main.storyboard */,
 				FE38C89921900176002603B3 /* InstructionStepViewController.swift */,
 				FE38C897218FFB58002603B3 /* ViewRecipeViewController.swift */,
+				FE34C16221BDE7ED004F9804 /* ViewRecipeTableCells.swift */,
 				FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */,
 				FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */,
 				FEF0E314216FECA5008C33E2 /* Assets.xcassets */,
@@ -330,6 +333,7 @@
 				D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */,
 				FE38C898218FFB58002603B3 /* ViewRecipeViewController.swift in Sources */,
 				FEF0E310216FECA3008C33E2 /* ViewController.swift in Sources */,
+				FE34C16321BDE7ED004F9804 /* ViewRecipeTableCells.swift in Sources */,
 				FE38C890218FDD20002603B3 /* CookbookTableViewController.swift in Sources */,
 				FEF0E30E216FECA3008C33E2 /* AppDelegate.swift in Sources */,
 				D8373BD721BCC225002ABF6B /* addPantryModel.swift in Sources */,

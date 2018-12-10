@@ -12,13 +12,17 @@
 import Foundation
 import UIKit
 
-class ViewRecipeViewController: UIViewController{
+class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    /******************/
+    //temp! take out later
+    var items = ["1","2","3"]
+    /******************/
     @IBOutlet weak var RecipeImage: UIImageView!
-
-    @IBOutlet weak var Ingredients: UITextView!
+    @IBOutlet weak var PrepTime: UILabel!
+    @IBOutlet weak var Temp: UILabel!
     
-    @IBOutlet weak var StepCell: UITableView!
-    @IBOutlet weak var Label: UILabel?
+    @IBOutlet weak var IngredientTable: UITableView!
+    @IBOutlet weak var InstructionTable: UITableView!
     
     //needed to recieve recipe name from CookBookTableViewController
     var recipeName:String = ""
@@ -27,12 +31,37 @@ class ViewRecipeViewController: UIViewController{
         super.viewDidLoad()
         //set the recipe name in the viewController's navigation bar
         self.title = recipeName
-        //prevents controls from getting shoved under the navigation bar
-        self.navigationController?.navigationBar.isTranslucent = false;
         
-        
+        self.IngredientTable.register(UITableViewCell.self, forCellReuseIdentifier: "IngredientCell")
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        if( tableView == IngredientTable){
+            let cell = self.IngredientTable.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
+            cell.IngredientLabel.text = self.items[indexPath.row]
+            return cell
+        }else{
+            let cell = self.InstructionTable.dequeueReusableCell(withIdentifier: "InstructionCell") as! InstructionCell
+            cell.StepText.text = self.items[indexPath.row]
+            return cell
+        }
         
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is InstructionStepViewController{
+            let view = segue.destination as? InstructionStepViewController
+            let currCell = InstructionTable.cellForRow(at: InstructionTable.indexPathForSelectedRow!) as! InstructionCell
+            
+            view?.StepText = currCell.StepText.text!
+            
+        }
+    }
+    
     
     
 }
