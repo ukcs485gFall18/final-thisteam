@@ -573,7 +573,7 @@
                                         <connections>
                                             <outlet property="Num" destination="xRv-f5-rjU" id="U1a-T7-9so"/>
                                             <outlet property="StepText" destination="9kR-53-6XA" id="wau-Z0-xeo"/>
-                                            <segue destination="DnT-CU-Y11" kind="showDetail" id="Yb7-5K-mU0"/>
+                                            <segue destination="DnT-CU-Y11" kind="show" id="Yb7-5K-mU0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -672,20 +672,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Default Message Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L51-zV-res" userLabel="StepTextView">
-                                <rect key="frame" x="16" y="44" width="375" height="734"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Default Message Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L51-zV-res" userLabel="StepTextView">
+                                <rect key="frame" x="0.0" y="302" width="375" height="476"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yax-wE-asq">
+                                <rect key="frame" x="37" y="113" width="54" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" title=" Prev" image="PreviousButtonIcon copy">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCw-0q-2Sd">
+                                <rect key="frame" x="285" y="112" width="51" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next" image="NextButtonIcon">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StepCountLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-fm-JXD">
+                                <rect key="frame" x="125" y="113" width="124" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="L51-zV-res" firstAttribute="leading" secondItem="E0U-Tw-STS" secondAttribute="trailing" constant="-359" id="aRF-gO-UQe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="L51-zV-res" secondAttribute="trailing" constant="-32" id="blK-8w-aEN"/>
-                            <constraint firstItem="L51-zV-res" firstAttribute="bottom" secondItem="E0U-Tw-STS" secondAttribute="bottom" id="v0u-xB-ogv"/>
-                            <constraint firstItem="L51-zV-res" firstAttribute="top" secondItem="E0U-Tw-STS" secondAttribute="bottom" constant="-734" id="yZv-LL-rpf"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="E0U-Tw-STS"/>
                     </view>
                 </viewController>
@@ -747,6 +764,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NextButtonIcon" width="13" height="21"/>
+        <image name="PreviousButtonIcon copy" width="13" height="21"/>
         <image name="board_edit" width="4069" height="6144"/>
         <image name="defaultImage" width="1200" height="1200"/>
     </resources>

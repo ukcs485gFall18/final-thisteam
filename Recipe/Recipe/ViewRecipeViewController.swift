@@ -59,9 +59,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is InstructionStepViewController{
             let view = segue.destination as? InstructionStepViewController
+                        
             let currCell = InstructionTable.cellForRow(at: InstructionTable.indexPathForSelectedRow!) as! InstructionCell
             
             view?.StepText = currCell.StepText.text!
+            view?.title = self.title
             
         }
     }
