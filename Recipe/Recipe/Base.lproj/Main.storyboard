@@ -119,14 +119,14 @@
                                 <items/>
                             </toolbar>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dHZ-0d-pxc">
-                                <rect key="frame" x="0.0" y="20" width="308" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="308" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="eOu-hH-AIm" id="fQ8-ij-8Qe"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XWs-IM-lLP">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPantryCell" rowHeight="78" id="bf1-zf-gCT" customClass="pantryCell" customModule="Recipe" customModuleProvider="target">
@@ -180,7 +180,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuP-tZ-L91">
-                                <rect key="frame" x="305" y="20" width="70" height="56"/>
+                                <rect key="frame" x="305" y="64" width="70" height="56"/>
                                 <color key="backgroundColor" red="0.78808718919754028" green="0.78791451454162598" blue="0.80853986740112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="JNE-rX-8XR"/>
@@ -229,25 +229,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hri-Fz-D87">
-                                <rect key="frame" x="0.0" y="41" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="85" width="375" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYu-wo-I9f">
-                                <rect key="frame" x="0.0" y="90" width="191" height="21"/>
+                                <rect key="frame" x="0.0" y="134" width="191" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-C4-Bki">
-                                <rect key="frame" x="0.0" y="146" width="191" height="21"/>
+                                <rect key="frame" x="0.0" y="190" width="191" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g79-TX-pye">
-                                <rect key="frame" x="0.0" y="202" width="191" height="21"/>
+                                <rect key="frame" x="0.0" y="246" width="191" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -262,19 +262,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enterAmount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWk-dK-RcO">
-                                <rect key="frame" x="191" y="90" width="184" height="21"/>
+                                <rect key="frame" x="191" y="134" width="184" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="measure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9P-Ud-n2s">
-                                <rect key="frame" x="191" y="146" width="184" height="21"/>
+                                <rect key="frame" x="191" y="190" width="184" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7C-FB-bOc">
-                                <rect key="frame" x="192" y="202" width="183" height="21"/>
+                                <rect key="frame" x="192" y="246" width="183" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -301,7 +301,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRT-g3-UVl">
-                                <rect key="frame" x="37" y="237" width="301" height="46"/>
+                                <rect key="frame" x="37" y="281" width="301" height="2"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Expiration:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbE-tS-pPo">
@@ -380,7 +380,6 @@
                         <outlet property="name" destination="Hri-Fz-D87" id="P8u-4D-ev5"/>
                         <outlet property="onSwitch" destination="H9w-1q-b5r" id="W9R-5E-cn4"/>
                         <outlet property="updateMeasure" destination="NiG-Ap-LmV" id="Rq4-QD-h1d"/>
-                        <segue destination="eOu-hH-AIm" kind="show" identifier="back" id="hH8-Pi-P4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00u-PW-Icw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -689,7 +688,4 @@
     <resources>
         <image name="defaultImage" width="1200" height="1200"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="hH8-Pi-P4C"/>
-    </inferredMetricsTieBreakers>
 </document>
