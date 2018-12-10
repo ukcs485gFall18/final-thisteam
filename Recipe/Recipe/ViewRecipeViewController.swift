@@ -32,7 +32,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         //set the recipe name in the viewController's navigation bar
         self.title = recipeName
         
-        self.IngredientTable.register(UITableViewCell.self, forCellReuseIdentifier: "IngredientCell")
+        self.IngredientTable.delegate = self
+        self.IngredientTable.dataSource = self
+        
+        self.InstructionTable.delegate = self
+        self.InstructionTable.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
