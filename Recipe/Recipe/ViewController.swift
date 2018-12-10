@@ -22,9 +22,13 @@ class SuperViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "addPantry" || segue.identifier == "viewPantry"{
-            print("ADD")
+        if segue.identifier == "addPantry"{
             if let destination = segue.destination as? pantryViewController{
+                destination.model = self.myPantryModel
+            }
+        }
+        else if segue.identifier == "viewPantry"{
+            if let destination = segue.destination as? viewPantryContentsController{
                 destination.model = self.myPantryModel
             }
         }

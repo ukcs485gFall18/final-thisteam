@@ -12,8 +12,9 @@
 		66689FDF21B9A00300A916D6 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66689FDC21B9A00200A916D6 /* Ingredient.swift */; };
 		66689FE021B9A00300A916D6 /* ModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66689FDD21B9A00200A916D6 /* ModelDemo.swift */; };
 		D8373BD721BCC225002ABF6B /* addPantryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8373BD621BCC225002ABF6B /* addPantryModel.swift */; };
-		D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */; };
-		D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */; };
+		D8373BD921BDBE79002ABF6B /* viewPantryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8373BD821BDBE79002ABF6B /* viewPantryController.swift */; };
+		D8373BDD21BDCD72002ABF6B /* pantryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8373BDC21BDCD72002ABF6B /* pantryTableCell.swift */; };
+		D8373BE121BE0100002ABF6B /* viewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8373BE021BE0100002ABF6B /* viewData.swift */; };
 		D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1459921869BB6005CE7F5 /* pantryViewController.swift */; };
 		FE34C16321BDE7ED004F9804 /* ViewRecipeTableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34C16221BDE7ED004F9804 /* ViewRecipeTableCells.swift */; };
 		FE38C890218FDD20002603B3 /* CookbookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */; };
@@ -54,8 +55,9 @@
 		668981AF21B0644E00F8E536 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D8025AF521B6455000AA97B1 /* Recipe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Recipe.entitlements; sourceTree = "<group>"; };
 		D8373BD621BCC225002ABF6B /* addPantryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPantryModel.swift; sourceTree = "<group>"; };
-		D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmyPantryViewController.swift; sourceTree = "<group>"; };
-		D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPantryCellViewController.swift; sourceTree = "<group>"; };
+		D8373BD821BDBE79002ABF6B /* viewPantryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewPantryController.swift; sourceTree = "<group>"; };
+		D8373BDC21BDCD72002ABF6B /* pantryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryTableCell.swift; sourceTree = "<group>"; };
+		D8373BE021BE0100002ABF6B /* viewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewData.swift; sourceTree = "<group>"; };
 		D8C1459921869BB6005CE7F5 /* pantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantryViewController.swift; sourceTree = "<group>"; };
 		FE34C16221BDE7ED004F9804 /* ViewRecipeTableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecipeTableCells.swift; sourceTree = "<group>"; };
 		FE38C88F218FDD20002603B3 /* CookbookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookbookTableViewController.swift; sourceTree = "<group>"; };
@@ -166,10 +168,11 @@
 				FEDC384821825E1600A00572 /* CookbookTableViewCell.swift */,
 				FEF0E314216FECA5008C33E2 /* Assets.xcassets */,
 				FEF0E319216FECA5008C33E2 /* Info.plist */,
-				D8C1459521868FFF005CE7F5 /* viewmyPantryViewController.swift */,
-				D8C14597218691BC005CE7F5 /* myPantryCellViewController.swift */,
 				D8373BD621BCC225002ABF6B /* addPantryModel.swift */,
 				D8C1459921869BB6005CE7F5 /* pantryViewController.swift */,
+				D8373BD821BDBE79002ABF6B /* viewPantryController.swift */,
+				D8373BDC21BDCD72002ABF6B /* pantryTableCell.swift */,
+				D8373BE021BE0100002ABF6B /* viewData.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -330,17 +333,18 @@
 			files = (
 				FE38C89A21900176002603B3 /* InstructionStepViewController.swift in Sources */,
 				FEDC384921825E1600A00572 /* CookbookTableViewCell.swift in Sources */,
-				D8C14598218691BC005CE7F5 /* myPantryCellViewController.swift in Sources */,
 				FE38C898218FFB58002603B3 /* ViewRecipeViewController.swift in Sources */,
 				FEF0E310216FECA3008C33E2 /* ViewController.swift in Sources */,
 				FE34C16321BDE7ED004F9804 /* ViewRecipeTableCells.swift in Sources */,
 				FE38C890218FDD20002603B3 /* CookbookTableViewController.swift in Sources */,
+				D8373BD921BDBE79002ABF6B /* viewPantryController.swift in Sources */,
 				FEF0E30E216FECA3008C33E2 /* AppDelegate.swift in Sources */,
+				D8373BDD21BDCD72002ABF6B /* pantryTableCell.swift in Sources */,
 				D8373BD721BCC225002ABF6B /* addPantryModel.swift in Sources */,
+				D8373BE121BE0100002ABF6B /* viewData.swift in Sources */,
 				D8C1459A21869BB6005CE7F5 /* pantryViewController.swift in Sources */,
 				66689FDF21B9A00300A916D6 /* Ingredient.swift in Sources */,
 				6656954421B3441D006032CB /* Model.xcdatamodeld in Sources */,
-				D8C1459621868FFF005CE7F5 /* viewmyPantryViewController.swift in Sources */,
 				66689FE021B9A00300A916D6 /* ModelDemo.swift in Sources */,
 				66689FDE21B9A00300A916D6 /* Recipe.swift in Sources */,
 			);
