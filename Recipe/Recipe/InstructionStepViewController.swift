@@ -11,9 +11,11 @@ import UIKit
 
 class InstructionStepViewController: UIViewController {
     
+    var StepText:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("got to step by step instruction")
+        
+        
     }
     
 }
