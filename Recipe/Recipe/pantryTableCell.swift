@@ -12,5 +12,5 @@ import UIKit
 class pantryCell: UITableViewCell{
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var amount: UILabel!
-    
+    @IBOutlet weak var expire: UILabel!
 }

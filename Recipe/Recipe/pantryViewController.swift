@@ -39,8 +39,8 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
         self.pantryData = [arrStr,
                            ["."],
                            arrStr,
-                           ["Gallon", "Liter", "Quart", "Pint",
-                            "Cup", "Fluid Ounce", "Tablespoon", "Teaspoon"]
+                           ["Gallon", "Pound", "Cup", "Tablespoon",
+                            "Teaspoon", "Ounce"]
             ]
         self.setupPicks()
         self.pantryQuantity.selectRow(50, inComponent: 0, animated: false)
