@@ -46,6 +46,13 @@ class pantryModel{
         }
     }
     
+    func updateItem(item: Ingredient){
+        
+    }
+    func deletItem(Item: Ingredient){
+        
+    }
+    
     //https://www.hackingwithswift.com/example-code/arrays/how-to-sort-an-array-using-sort
     func sortOn(val: String)-> Void{
         if val == "name"{

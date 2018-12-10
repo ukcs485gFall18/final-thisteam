@@ -21,6 +21,7 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
     @IBOutlet weak var myTable: UITableView!
     var isSearching:Bool = false
     var sortOn:String = String()
+    var selected:Ingredient? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,5 +153,24 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
         return cell
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myTable.deselectRow(at: indexPath, animated: true)
+        let row = indexPath.row
+        if isSearching{
+            selected = model.filteredPantry[row]
+        }
+        else{
+            selected = model.pantry[row]
+        }
+        performSegue(withIdentifier: "viewDataMore", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? viewData{
+            destination.ingrendients = self.selected!
+            destination.model = self.model
+        }
+    }
+
     
 }
