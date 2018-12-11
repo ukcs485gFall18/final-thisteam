@@ -21,22 +21,6 @@ class pantryModel{
     func load(){
         print("LOADING")
         
-        //Change with NSPredicate for loading data
-        
-        pantry = [Ingredient(name: "Egg Noodles", quantity: 1.0, units: nil, expirationDate: nil),
-                  Ingredient(name: "Chicken Broth", quantity: 8.0, units: .cup, expirationDate: Date.init(timeIntervalSinceNow: 1.577e+7)),
-                  Ingredient(name: "Carrot", quantity: 5.0, units: nil, expirationDate: Date.init(timeIntervalSinceNow: 604800)),
-                  Ingredient(name: "Chicken Breast", quantity: 1.75, units: .lbs, expirationDate: Date.init(timeIntervalSinceNow: 604800)),
-                  Ingredient(name: "Celery", quantity: 5.0, units: nil, expirationDate: Date.init(timeIntervalSinceNow: 604800)),
-                  Ingredient(name: "Black Pepper", quantity: 5.0, units: .tbsp, expirationDate: Date.init(timeIntervalSinceNow: 3.154e+7)),
-                  Ingredient(name: "Egg", quantity: 12.0, units: nil, expirationDate: Date.init(timeIntervalSinceNow: 1.21e+6)),
-                  Ingredient(name: "Milk", quantity: 1.0, units: .gal, expirationDate: Date.init(timeIntervalSinceNow: 1.21e+6)),
-                  Ingredient(name: "Rosemary", quantity: 1.0, units: .oz, expirationDate: Date.init(timeIntervalSinceNow: 3.154e+7)),
-                  Ingredient(name: "Corn Flakes", quantity: 19.0, units: .oz, expirationDate: Date.init(timeIntervalSinceNow: 3.154e+7)),
-                  Ingredient(name: "Rice Noodles", quantity: 8.0, units: .oz, expirationDate: Date.init(timeIntervalSinceNow: 3.154e+7)),
-                  Ingredient(name: "Almond Milk", quantity: 4.0, units: .cup, expirationDate: Date.init(timeIntervalSinceNow: 1.21e+6))
-        ]
-        
     }
     
     func saveItem(name: String, amount: Double, measure: String, date : Date?){
@@ -55,22 +39,22 @@ class pantryModel{
     //https://www.hackingwithswift.com/example-code/arrays/how-to-sort-an-array-using-sort
     func sortOn(val: String)-> Void{
         if val == "name"{
-            let sorted:[Ingredient] = self.pantry.sorted{ $0.name < $1.name}
+            let sorted:[Ingredient] = self.pantry.sorted{ $0.name! < $1.name!}
             self.pantry = sorted
         }
         else{
             //https://stackoverflow.com/questions/47255246/sorting-struct-array-in-swift-4
             let sorted:[Ingredient] = self.pantry.sorted(by: {(lhs, rhs)->Bool in
-                if let lhsDate = lhs.expirationDate, let rhsDate = rhs.expirationDate{
+                if let lhsDate = lhs.expiration, let rhsDate = rhs.expiration{
                     return lhsDate < rhsDate
                 }
-                if lhs.expirationDate == nil && rhs.expirationDate == nil{
+                if lhs.expiration == nil && rhs.expiration == nil{
                     return false
                 }
-                if lhs.expirationDate == nil{
+                if lhs.expiration == nil{
                     return false
                 }
-                if rhs.expirationDate == nil{
+                if rhs.expiration == nil{
                     return true
                 }
                 return false //never ran but needed for code

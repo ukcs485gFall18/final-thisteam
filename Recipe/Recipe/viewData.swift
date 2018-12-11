@@ -24,34 +24,16 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var onSwitch: UISwitch!
     
-    func convertToStr(measure: MeasurementUnits?) ->String{
-        switch measure {
-        case .cup?:
-            return "cup"
-        case .gal?:
-            return "gallon"
-        case .lbs?:
-            return "pound"
-        case .oz?:
-            return "ounce"
-        case .tbsp?:
-            return "tablespoon"
-        case .tsp?:
-            return "teaspoon"
-        default:
-            return "unit"
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateMeasure.delegate = self
         self.updateMeasure.dataSource = self
         datePicker.datePickerMode = UIDatePicker.Mode.date
-        name.text = ingrendients!.name
+        name.text = ingrendients!.name!
         amount.text = String(ingrendients!.quantity)
-        measure.text = convertToStr(measure: ingrendients?.units).capitalized
-        if let d = ingrendients?.expirationDate{
+        measure.text = ingrendients!.units!.capitalized
+        if let d = ingrendients?.expiration{
             let format = DateFormatter()
             format.dateFormat = "MM/dd/yyyy"
             let now = format.string(from: d)
@@ -114,7 +96,7 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBAction func deleteRecord(_ sender: Any){
         model.deletItem(Item: ingrendients!)
-        let alert = UIAlertController(title: "Delete Status", message: "Successfully deleted \(ingrendients!.name) from the pantry", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete Status", message: "Successfully deleted \(ingrendients!.name!) from the pantry", preferredStyle: .alert)
         let okay = UIAlertAction(title:"Okay", style: .default,handler: { (alertAction) -> Void in      self.dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
         })
@@ -124,7 +106,7 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBAction func updateRecord(_ sender: Any){
         model.updateItem(item: ingrendients!)
-        let alert = UIAlertController(title: "Save Status", message: "Successfully updated \(ingrendients!.name) to the pantry", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Save Status", message: "Successfully updated \(ingrendients!.name!) to the pantry", preferredStyle: .alert)
         let okay = UIAlertAction(title:"Okay", style: .default,handler: { (alertAction) -> Void in      self.dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
 })

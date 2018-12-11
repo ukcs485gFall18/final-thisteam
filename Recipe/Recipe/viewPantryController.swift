@@ -49,7 +49,7 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
         isSearching = false
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        model.filteredPantry = model.pantry.filter{$0.name.contains(searchText)}
+        model.filteredPantry = model.pantry.filter{$0.name!.contains(searchText)}
         if searchBar.text?.count != 0{
             isSearching = true
         }
@@ -88,35 +88,17 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
         
     }
     
-    func convertToStr(measure: MeasurementUnits?) ->String{
-        switch measure {
-        case .cup?:
-            return "cup"
-        case .gal?:
-            return "gallon"
-        case .lbs?:
-            return "pound"
-        case .oz?:
-            return "ounce"
-        case .tbsp?:
-            return "tablespoon"
-        case .tsp?:
-            return "teaspoon"
-        default:
-            return "unit"
-        }
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTable.dequeueReusableCell(withIdentifier: "myPantryCell") as! pantryCell
         var name:String = String()
         var amount:Double = Double()
-        var measure:MeasurementUnits?
+        var measure:String? = String()
         if !isSearching{
-            name = model.pantry[indexPath.row].name
+            name = model.pantry[indexPath.row].name!
             amount = model.pantry[indexPath.row].quantity
             measure = model.pantry[indexPath.row].units
-            if let date = model.pantry[indexPath.row].expirationDate{
+            if let date = model.pantry[indexPath.row].expiration{
                 let format = DateFormatter()
                 format.dateFormat = "MM/dd/yyyy"
                 let now = format.string(from: date)
@@ -128,10 +110,10 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
             
         }
         else{
-            name = model.filteredPantry[indexPath.row].name
+            name = model.filteredPantry[indexPath.row].name!
             amount = model.filteredPantry[indexPath.row].quantity
             measure = model.filteredPantry[indexPath.row].units
-            if let date = model.filteredPantry[indexPath.row].expirationDate{
+            if let date = model.filteredPantry[indexPath.row].expiration{
                 let format = DateFormatter()
                 format.dateFormat = "MM/dd/yyyy"
                 let now = format.string(from: date)
@@ -142,7 +124,7 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
             }
             
         }
-        var measureStr = convertToStr(measure: measure)
+        var measureStr = measure!
         if amount != 1.0{
             measureStr += "s"
         }
