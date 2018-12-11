@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CategoryData" representedClassName="CategoryData" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeData" inverseName="categorizedBy" inverseEntity="RecipeData" syncable="YES"/>
+        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="categorizedBy" inverseEntity="Recipe" syncable="YES"/>
     </entity>
-    <entity name="IngredientData" representedClassName="IngredientData" syncable="YES" codeGenerationType="class">
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="category">
         <attribute name="expiration" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="inList" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="inPantry" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="usedIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeData" inverseName="uses" inverseEntity="RecipeData" syncable="YES"/>
+        <relationship name="usedIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="uses" inverseEntity="Recipe" syncable="YES"/>
     </entity>
-    <entity name="RecipeData" representedClassName="RecipeData" syncable="YES" codeGenerationType="class">
+    <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="category">
         <attribute name="cookTime" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="instructions" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="prepTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="categorizedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoryData" inverseName="contains" inverseEntity="CategoryData" syncable="YES"/>
-        <relationship name="uses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IngredientData" inverseName="usedIn" inverseEntity="IngredientData" syncable="YES"/>
+        <relationship name="categorizedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="contains" inverseEntity="Category" syncable="YES"/>
+        <relationship name="uses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="usedIn" inverseEntity="Ingredient" syncable="YES"/>
     </entity>
     <elements>
-        <element name="IngredientData" positionX="19.62109375" positionY="-161.046875" width="128" height="163"/>
-        <element name="RecipeData" positionX="-167.23046875" positionY="-161.21484375" width="128" height="163"/>
-        <element name="CategoryData" positionX="-152.41796875" positionY="44.0703125" width="128" height="73"/>
+        <element name="Category" positionX="-152.41796875" positionY="44.0703125" width="128" height="73"/>
+        <element name="Ingredient" positionX="19.62109375" positionY="-161.046875" width="128" height="148"/>
+        <element name="Recipe" positionX="-167.23046875" positionY="-161.21484375" width="128" height="163"/>
     </elements>
 </model>
