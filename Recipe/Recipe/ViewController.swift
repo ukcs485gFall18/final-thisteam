@@ -8,10 +8,13 @@
 //
 
 import UIKit
+import CoreData
 
 class SuperViewController: UIViewController {
     
     public var myPantryModel = pantryModel()
+    let container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    lazy var moc: NSManagedObjectContext = container.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
