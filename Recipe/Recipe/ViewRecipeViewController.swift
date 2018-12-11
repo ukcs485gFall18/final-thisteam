@@ -15,7 +15,7 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     /******************/
     //temp! take out later
-    var items = ["1","2","3"]
+    var items = ["one","two","three"]
     /******************/
     @IBOutlet weak var RecipeImage: UIImageView!
     @IBOutlet weak var PrepTime: UILabel!
@@ -24,11 +24,15 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var IngredientTable: UITableView!
     @IBOutlet weak var InstructionTable: UITableView!
     
+    @IBOutlet weak var Edit: UIButton!
+    
+    
     //needed to recieve recipe name from CookBookTableViewController
     var recipeName:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //set the recipe name in the viewController's navigation bar
         self.title = recipeName
         
@@ -43,10 +47,15 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         if( tableView == IngredientTable){
             let cell = self.IngredientTable.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
             cell.IngredientLabel.text = self.items[indexPath.row]
+            cell.Amount.text = "2 tsp"
+            /* if ingredient in pantry: change image to checkmark
+                cell.InPantryImg
+            */
             return cell
         }else{
             let cell = self.InstructionTable.dequeueReusableCell(withIdentifier: "InstructionCell") as! InstructionCell
             cell.StepText.text = self.items[indexPath.row]
+            cell.Num.text = String(indexPath.row + 1)
             return cell
         }
         
@@ -63,6 +72,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             let currCell = InstructionTable.cellForRow(at: InstructionTable.indexPathForSelectedRow!) as! InstructionCell
             
             view?.StepText = currCell.StepText.text!
+            view?.StepCount = Int(currCell.Num.text!)!
+            
             view?.title = self.title
             
         }
