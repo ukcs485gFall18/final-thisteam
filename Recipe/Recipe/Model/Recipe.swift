@@ -17,7 +17,7 @@ import CoreData
 
 class Recipe: NSManagedObject {
      // createRecipe takes in an array of data and assigns it to a variable of type Recipe that is then saved to the device
-    static func createRecipe(with recipeInfo: [String], in moc: NSManagedObjectContext) {
+    static func createRecipe(with recipeInfo: [String], and recipeImage: UIImage, in moc: NSManagedObjectContext) {
         let recipe = Recipe(context: moc)
         recipe.id = Int16(recipeInfo[0])!
         recipe.name = recipeInfo[1]
@@ -25,6 +25,7 @@ class Recipe: NSManagedObject {
         recipe.cookTime = Double(recipeInfo[3])!
         recipe.instructions = recipeInfo[4]
         recipe.rating = Int16(recipeInfo[5])!
+        recipe.image = recipeImage.pngData()
         
         do {
             try moc.save()

@@ -7,7 +7,6 @@
 //
 // Model that deals with both adding and viewing pantry model
 
-
 import Foundation
 import UserNotifications
 
@@ -106,3 +105,4 @@ class pantryModel{
 
     
 }
+

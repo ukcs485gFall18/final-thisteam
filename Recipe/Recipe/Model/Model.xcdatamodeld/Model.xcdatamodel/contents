@@ -16,6 +16,7 @@
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="category">
         <attribute name="cookTime" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="instructions" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="prepTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -26,6 +27,6 @@
     <elements>
         <element name="Category" positionX="-152.41796875" positionY="44.0703125" width="128" height="73"/>
         <element name="Ingredient" positionX="19.62109375" positionY="-161.046875" width="128" height="148"/>
-        <element name="Recipe" positionX="-167.23046875" positionY="-161.21484375" width="128" height="163"/>
+        <element name="Recipe" positionX="-167.23046875" positionY="-161.21484375" width="128" height="178"/>
     </elements>
 </model>

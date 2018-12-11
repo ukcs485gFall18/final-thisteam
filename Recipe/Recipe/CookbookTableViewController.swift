@@ -10,15 +10,23 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class CookbookTableViewController : UITableViewController {
+    let container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    lazy var moc: NSManagedObjectContext = container.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //return the number of recipes in the cookbook
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CookbookList.count //from ModelDemo
+        do {
+            return try Recipe.filterRecipesByPantryItems(in: moc).count
+        } catch {
+            return 0
+        }
     }
     
     //set the information for each cell
@@ -27,11 +35,17 @@ class CookbookTableViewController : UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CookbookTableViewCell") as! CookbookTableViewCell
         
         //set the sub elements of the cell (Label, image, etc)
-        cell.CellLabel.text = CookbookList[indexPath.row].name
+        do {
+            cell.CellLabel.text = try Recipe.filterRecipesByPantryItems(in: moc)[indexPath.row].name
+        } catch {
+            print("Error!")
+        }
         
         //if the recipe has a custom image, set it, otherwise maintain default image (defaultRecipeImage.png)
-        if(CookbookList[indexPath.row].image != nil){
-            cell.CellImage.image = CookbookList[indexPath.row].image
+        do {
+            cell.CellImage.image = try UIImage(data: Recipe.filterRecipesByPantryItems(in: moc)[indexPath.row].image!)
+        } catch {
+            print("Error!")
         }
         
         //populate the tableView

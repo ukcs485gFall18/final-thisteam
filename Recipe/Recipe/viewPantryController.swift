@@ -174,3 +174,4 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
 
     
 }
+
