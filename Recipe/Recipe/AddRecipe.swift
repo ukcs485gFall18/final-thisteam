@@ -191,6 +191,17 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
             self.present(alert, animated: true, completion: nil)
         }
         else{
+            self.InstructionTable.deselectRow(at: indexPath, animated: true)
+            let row = indexPath.row
+            let alert = UIAlertController(title: "Delete Instruction?", message: "Do you want to delete \(self.instructions[row])?", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Delete", style: .default, handler:{ a->Void in
+                self.instructions.remove(at: row)
+                self.InstructionTable.reloadData()
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(action)
+            alert.addAction(cancel)
+            self.present(alert, animated: true, completion: nil)
             
             
         }
