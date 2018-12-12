@@ -967,25 +967,25 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstructionCell" id="ckb-x9-az3" userLabel="InstructionCell" customClass="InstructionCell" customModule="Recipe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49" width="342" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstructionCell" rowHeight="55" id="ckb-x9-az3" userLabel="InstructionCell" customClass="InstructionCell" customModule="Recipe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49" width="342" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ckb-x9-az3" id="TRO-BE-Up5" customClass="InstructionCell" customModule="Recipe" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="54.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="StepText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1U-DN-bev">
-                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="StepText" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1U-DN-bev">
+                                                    <rect key="frame" x="34" y="11" width="274" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="R1U-DN-bev" firstAttribute="top" secondItem="TRO-BE-Up5" secondAttribute="top" id="BvW-Xi-aYL"/>
-                                                <constraint firstAttribute="bottom" secondItem="R1U-DN-bev" secondAttribute="bottom" id="FDj-gu-yR6"/>
-                                                <constraint firstAttribute="trailing" secondItem="R1U-DN-bev" secondAttribute="trailing" id="aIt-ic-2B3"/>
-                                                <constraint firstItem="R1U-DN-bev" firstAttribute="leading" secondItem="TRO-BE-Up5" secondAttribute="leading" id="wHR-UM-SLp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="R1U-DN-bev" secondAttribute="trailing" constant="19" id="QTz-Ct-fpZ"/>
+                                                <constraint firstItem="R1U-DN-bev" firstAttribute="top" secondItem="TRO-BE-Up5" secondAttribute="topMargin" id="ZuT-bO-eQx"/>
+                                                <constraint firstItem="R1U-DN-bev" firstAttribute="bottom" secondItem="TRO-BE-Up5" secondAttribute="bottomMargin" id="c3X-Yd-Zro"/>
+                                                <constraint firstItem="R1U-DN-bev" firstAttribute="leading" secondItem="TRO-BE-Up5" secondAttribute="leadingMargin" constant="19" id="z5n-9j-fbJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1116,6 +1116,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="addImage:" destination="BM2-c1-bdS" eventType="touchUpInside" id="bac-B9-JGA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

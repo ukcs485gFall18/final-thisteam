@@ -35,7 +35,6 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
         for i in arr{
             arrStr.append(String(i))
         }
-        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
 
         self.view.addGestureRecognizer(tap)
@@ -47,8 +46,8 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
                             "Teaspoon", "Ounce", "Unit"]
             ]
         self.setupPicks()
-        self.pantryQuantity.selectRow(50, inComponent: 0, animated: false)
-        self.pantryQuantity.selectRow(50, inComponent: 2, animated: false)
+        self.pantryQuantity.selectRow(0, inComponent: 0, animated: false)
+        self.pantryQuantity.selectRow(0, inComponent: 2, animated: false)
     }
     
     //https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift?answertab=active#tab-top

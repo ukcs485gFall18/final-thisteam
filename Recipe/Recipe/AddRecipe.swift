@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     
     
@@ -29,6 +29,7 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     var instructions:[String] = [String]()
     var ingredients:[Ingredient] = [Ingredient]()
     
+    var imagePicker = UIImagePickerController()
 
     
     @IBAction func AddIngredient(_ sender: Any) {
@@ -92,7 +93,29 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(alertController, animated: true, completion: nil)
     }
     
+    //https://stackoverflow.com/questions/25510081/how-to-allow-user-to-pick-the-image-with-swift
+    @IBAction func addImage(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+    }
+
+    //https://stackoverflow.com/questions/44465904/photopicker-discovery-error-error-domain-pluginkit-code-13
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.RecipeImage.contentMode = .scaleAspectFit
+            self.RecipeImage.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     var nameFromSegue = ""
     override func viewDidLoad() {
@@ -101,7 +124,9 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         if(nameFromSegue != ""){
             NameEdit.text = nameFromSegue
         }
-        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+
         self.IngredientTable.delegate = self
         self.IngredientTable.dataSource = self
         self.IngredientTable.reloadData()
@@ -134,6 +159,9 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.StepText.text = String(indexPath.row + 1) + ")" + " " + self.instructions[indexPath.row]
             return cell
         }
+    }
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
 }
