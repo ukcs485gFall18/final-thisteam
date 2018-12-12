@@ -23,13 +23,11 @@ class pantryModel{
         request.sortDescriptors = [NSSortDescriptor(key: "expiration", ascending: true)]
         do {
             let results = try moc.fetch(request)
-            pantry = results
+            self.pantry = results
         } catch {
             print("error")
         }
-        for i in pantry{
-            print(i.name)
-        }
+
 
     }
     
@@ -42,19 +40,59 @@ class pantryModel{
             container.performBackgroundTask{ context in
                 Ingredient.createIngredient(with: [name, String(amount), measure, "true", strDate ], in: context)
             }
+            
         }
         else{
             Ingredient.createIngredient(with: [name, String(amount), measure, "true", ""], in: moc)
         }
+        let addition = Ingredient(context: moc)
+        addition.name = name
+        addition.quantity = amount
+        addition.units = measure
+        addition.expiration = date
+        self.pantry.append(addition)
+    
+        //afraid to delete b/c it is working
+        for i in self.pantry{
+            print(i.name as Any)
+        }
         
     }
     
-    func updateItem(item: Ingredient){
+    func updateItem(itemNew: Ingredient, itemOld: Ingredient){
+        let index = self.pantry.index(where: {$0 == itemOld})
+        self.pantry[index!] = itemNew
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        var strDate:String = ""
+        if let date = itemNew.expiration{
+            strDate = formatter.string(from: date)
+        }
+        else{
+            strDate = ""
+        }
+        container.performBackgroundTask{ context in
+            Ingredient.updateIngredient(with: [itemNew.name!, String(itemNew.quantity), itemNew.units!, "true", strDate], in: context)
+        }
         
     }
     func deletItem(Item: Ingredient){
         if Item.expiration != nil{
             self.removeNotification(Item: Item)
+        }
+        let index = self.pantry.index(where: {$0 == Item})
+        self.pantry.remove(at: index!)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        var strDate:String = ""
+        if let date = Item.expiration{
+            strDate = formatter.string(from: date)
+        }
+        else{
+            strDate = ""
+        }
+        container.performBackgroundTask{ context in
+            Ingredient.deleteIngredient(with: [Item.name!, String(Item.quantity), Item.units!, "true", strDate], in: context)
         }
     }
     
@@ -79,7 +117,7 @@ class pantryModel{
     //https://www.hackingwithswift.com/example-code/arrays/how-to-sort-an-array-using-sort
     func sortOn(val: String)-> Void{
         if val == "name"{
-            let sorted:[Ingredient] = self.pantry.sorted{ $0.name! < $1.name!}
+            let sorted:[Ingredient] = self.pantry.sorted{ $0.name!.lowercased() < $1.name!.lowercased()}
             self.pantry = sorted
         }
         else{

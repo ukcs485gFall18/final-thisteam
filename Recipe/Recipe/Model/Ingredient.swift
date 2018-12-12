@@ -18,6 +18,7 @@ import CoreData
 
 class Ingredient: NSManagedObject {
     // loadPantry lists all ingredients where the items are in the pantry, sorted by expiration
+    // copied into pantry model, some reason it only works there 
     static func loadPantry(in moc: NSManagedObjectContext) throws -> [Ingredient] {
         let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
         request.predicate = NSPredicate(format: "inPantry == YES")
@@ -55,13 +56,34 @@ class Ingredient: NSManagedObject {
         request.predicate = NSPredicate(format: "name = %@", ingredientInfo[0])
         do {
             let result = try moc.fetch(request)
-            result[1].quantity = Double(ingredientInfo[1])!
-            result[2].units = ingredientInfo[2]
-            result[3].inPantry = Bool(ingredientInfo[3])!
+            result[0].quantity = Double(ingredientInfo[1])!
+            result[0].units = ingredientInfo[2]
+            result[0].inPantry = Bool(ingredientInfo[3])!
             try moc.save()
         } catch {
             print("Error saving data!")
         }
     }
-
+    
+    
+    //https://stackoverflow.com/questions/38017449/swift-3-core-data-delete-object
+    static func deleteIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext){
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", ingredientInfo[0])
+        do{
+            let result = try moc.fetch(request)
+            for object in result as [NSManagedObject]{
+                    moc.delete(object)
+            }
+        } catch{
+            print("Error deleting")
+        }
+        
+        do{
+            try moc.save()
+        } catch{
+            print("error")
+        }
+        
+    }
 }
