@@ -23,13 +23,9 @@ class AddRecipeViewController: UIViewController{
     @IBOutlet weak var AddIngredient: UIButton!
     @IBAction func AddIngredient(_ sender: Any) {
         //Popup a box to add ingredient
-        let alertController = UIAlertController(title: "Add Ingredient", message: "", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Enter", style: .default){(_) in
-            
-            let Ingredient = alertController.textFields?[0].text
-            let Amount = alertController.textFields?[1].text
-            //self.labelMessage.text = "Ingredient: " + Ingredient! + "Amount: " + Amount!
-        }
+        let alertController = UIAlertController(title: "Add Ingredients", message: "", preferredStyle: .alert)
+        
+
     }
     
     @IBOutlet weak var Save: UIButton!
