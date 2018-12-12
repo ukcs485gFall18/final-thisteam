@@ -43,6 +43,6 @@ func setDummyData() {
         ingredient3.expiration = Date()
         
         let ingredients = [ingredient1, ingredient2, ingredient3]
-        let recipe = ["Peanut Butter Banana Oatmeal", "0", "5", "Cook oatmeal, add additional ingredients"]
+        let recipe = ["Peanut Butter Banana Oatmeal", "0", "5", "Cook oatmeal$ add additional ingredients$ test"]
         Recipe.createRecipe(with: recipe, using: ingredients, and: nil, in: moc)
 }

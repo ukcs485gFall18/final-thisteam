@@ -85,7 +85,23 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     
-    @IBOutlet weak var Save: UIButton!
+    @IBAction func save(_ sender: Any) {
+        print("PRESSED")
+        var instruct = ""
+        for i in instructions{
+            instruct = instruct + " $"
+        }
+        if instruct.count > 0{
+            instruct.removeLast()
+            instruct.removeLast()
+        }
+        container.performBackgroundTask{ context in
+            Recipe.createRecipe(with: [self.NameEdit.text!, self.PrepTimeEdit.text!, self.CookTimeEdit.text!, instruct], using: self.ingredients, and: self.RecipeImage.image, in: context)
+        }
+        
+    }
+    
+    
     @IBOutlet weak var AddInstruction: UIButton!
     @IBAction func AddInstruction(_ sender: Any) {
         //Popup a box to add Instruction
@@ -139,7 +155,9 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         self.NameEdit.delegate = self
         self.PrepTimeEdit.delegate = self
         self.TempEdit.delegate = self
-        
+        self.CookTimeEdit.keyboardType = UIKeyboardType.decimalPad
+        self.PrepTimeEdit.keyboardType = UIKeyboardType.decimalPad
+        self.TempEdit.keyboardType = UIKeyboardType.decimalPad
 
         self.IngredientTable.delegate = self
         self.IngredientTable.dataSource = self

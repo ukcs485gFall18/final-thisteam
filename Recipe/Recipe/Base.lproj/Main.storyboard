@@ -939,7 +939,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IngredientLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQy-CG-TCA">
-                                                    <rect key="frame" x="172" y="11" width="170" height="22"/>
+                                                    <rect key="frame" x="172" y="11.000000000000002" width="170" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1053,6 +1053,9 @@
                                     <constraint firstAttribute="width" constant="34" id="QfA-6k-yop"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="BM2-c1-bdS" eventType="touchUpInside" id="Ix0-BA-PIV"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-j2-1vW" userLabel="PrepTimeEdit">
                                 <rect key="frame" x="187" y="125" width="172" height="21"/>
@@ -1189,7 +1192,6 @@
                         <outlet property="NameEdit" destination="Mqn-QX-bf1" id="cFg-Vb-1eZ"/>
                         <outlet property="PrepTimeEdit" destination="XMb-j2-1vW" id="0l0-Ua-U4V"/>
                         <outlet property="RecipeImage" destination="VAQ-3L-1ca" id="mpO-a3-Wv8"/>
-                        <outlet property="Save" destination="7cm-nM-a7k" id="47H-C7-Fir"/>
                         <outlet property="TempEdit" destination="LLF-sd-oKJ" id="bM8-mr-EUX"/>
                     </connections>
                 </viewController>

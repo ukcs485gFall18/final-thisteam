@@ -15,7 +15,7 @@ import UIKit
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     /******************/
     //temp! take out later
-    var items = ["one","two","three"]
+    //var items = ["one","two","three"]
     /******************/
     @IBOutlet weak var RecipeImage: UIImageView!
     @IBOutlet weak var PrepTime: UILabel!
@@ -26,6 +26,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var InstructionTable: UITableView!
     
     @IBOutlet weak var Edit: UIButton!
+
     
     
     //needed to recieve recipe name from CookBookTableViewController
@@ -39,7 +40,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         
         self.IngredientTable.delegate = self
         self.IngredientTable.dataSource = self
-        
+        self.InstructionTable.accessibilityIdentifier = "instruct"
         self.InstructionTable.delegate = self
         self.InstructionTable.dataSource = self
     }
@@ -63,8 +64,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             let cell = self.InstructionTable.dequeueReusableCell(withIdentifier: "InstructionCell") as! InstructionCell
             do {
                 let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
-                let instructions = currentRecipe.instructions!.components(separatedBy: CharacterSet.newlines)
-                cell.StepText.text = instructions[0]
+                let instructions = currentRecipe.instructions!.components(separatedBy: "$")
+                cell.StepText.text = instructions[indexPath.row]
             } catch  {
                 
             }
@@ -75,7 +76,28 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if tableView.accessibilityIdentifier == "instruct"{
+            do {
+                let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+                let instructions = currentRecipe.instructions!.components(separatedBy: "$")
+                return instructions.count
+            }
+            catch{
+                print()
+            }
+            
+        }
+        else{
+            do{
+                let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+                let ingredients = try Ingredient.findRecipeIngredients(for: currentRecipe.name!, in: moc)
+                return ingredients.count
+            }
+            catch{
+                print()
+            }
+        }
+        return 0
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
