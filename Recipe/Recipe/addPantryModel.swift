@@ -9,24 +9,37 @@
 
 import Foundation
 import UserNotifications
-
+import CoreData
+import UIKit
 
 class pantryModel{
     
     //test pantry
+    let container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    lazy var moc: NSManagedObjectContext = container.viewContext
     
     var pantry:[Ingredient] = []
     var filteredPantry:[Ingredient] = []
     
     func load(){
-        print("LOADING")
         
     }
     
     func saveItem(name: String, amount: Double, measure: String, date : Date?){
         if date != nil{
             self.prepareNotification(date: date!, name: name)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let strDate = formatter.string(from: date!)
+            container.performBackgroundTask{ context in
+                Ingredient.createIngredient(with: [name, String(amount), measure, "YES", strDate ], in: context)
+            }
+
         }
+        else{
+            Ingredient.createIngredient(with: [name, String(amount), measure, "YES", ""], in: moc)
+        }
+        
     }
     
     func updateItem(item: Ingredient){

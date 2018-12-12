@@ -30,6 +30,7 @@ class Ingredient: NSManagedObject {
         }
     }
     
+    
     // createIngredient takes in an array of data and assigns it to a variable of type Ingredient that is then saved to the device
     static func createIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
         let ingredient = Ingredient(context: moc)
