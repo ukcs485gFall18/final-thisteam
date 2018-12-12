@@ -933,8 +933,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IngredientLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQy-CG-TCA">
-                                                    <rect key="frame" x="137" y="11.000000000000002" width="205" height="21.666666666666671"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="172" y="11" width="170" height="22"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -943,7 +943,7 @@
                                                 <constraint firstItem="LQy-CG-TCA" firstAttribute="top" secondItem="pjH-yn-a8D" secondAttribute="topMargin" id="4uc-Pn-dya"/>
                                                 <constraint firstItem="GMC-DT-mhD" firstAttribute="leading" secondItem="pjH-yn-a8D" secondAttribute="leadingMargin" constant="15" id="6Pv-5H-jgt"/>
                                                 <constraint firstItem="GMC-DT-mhD" firstAttribute="centerY" secondItem="LQy-CG-TCA" secondAttribute="centerY" id="AZ3-7s-hZa"/>
-                                                <constraint firstItem="LQy-CG-TCA" firstAttribute="leading" secondItem="GMC-DT-mhD" secondAttribute="trailing" constant="8" symbolic="YES" id="JqJ-u2-tAW"/>
+                                                <constraint firstItem="LQy-CG-TCA" firstAttribute="leading" secondItem="GMC-DT-mhD" secondAttribute="trailing" constant="43" id="JqJ-u2-tAW"/>
                                                 <constraint firstAttribute="trailing" secondItem="LQy-CG-TCA" secondAttribute="trailing" id="cxs-49-YEP"/>
                                                 <constraint firstItem="GMC-DT-mhD" firstAttribute="centerY" secondItem="pjH-yn-a8D" secondAttribute="centerY" id="xcC-oG-Zhb"/>
                                                 <constraint firstItem="GMC-DT-mhD" firstAttribute="top" secondItem="pjH-yn-a8D" secondAttribute="top" id="zhQ-de-KrB"/>

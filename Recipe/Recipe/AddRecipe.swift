@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
 
     
     
@@ -31,7 +31,12 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var imagePicker = UIImagePickerController()
 
-    
+    //https://stackoverflow.com/questions/24180954/how-to-hide-keyboard-in-swift-on-pressing-return-key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
     @IBAction func AddIngredient(_ sender: Any) {
         //Popup a box to add ingredient
         let alertController = UIAlertController(title: "Add Ingredients", message: "", preferredStyle: .alert)
@@ -41,12 +46,18 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
 
         alertController.addTextField(configurationHandler: {(textField) in
             textField.placeholder = "Measure..."
+            textField.keyboardType = UIKeyboardType.decimalPad
             
         })
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: {alert->Void in
-            if let val = Double(alertController.textFields![1].text!){
                 let newIngred = Ingredient(context: moc)
-            }
+                newIngred.name = alertController.textFields![0].text!
+                newIngred.quantity = Double(alertController.textFields![1].text!)!
+                newIngred.expiration = nil
+                newIngred.inPantry = false
+                newIngred.units = alertController.textFields![2].text!
+                self.ingredients.append(newIngred)
+                self.IngredientTable.reloadData()
             
         })
         
@@ -124,14 +135,18 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         if(nameFromSegue != ""){
             NameEdit.text = nameFromSegue
         }
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        self.view.addGestureRecognizer(tap)
+        self.CookTimeEdit.delegate = self
+        self.NameEdit.delegate = self
+        self.PrepTimeEdit.delegate = self
+        self.TempEdit.delegate = self
+        
 
         self.IngredientTable.delegate = self
         self.IngredientTable.dataSource = self
         self.IngredientTable.reloadData()
         self.IngredientTable.accessibilityIdentifier = "ingred"
-        
+        self.IngredientTable.rowHeight = 50.0
+        self.InstructionTable.rowHeight = 50.0
         self.InstructionTable.delegate = self
         self.InstructionTable.dataSource = self
         self.InstructionTable.reloadData()
@@ -150,7 +165,7 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.accessibilityIdentifier == "ingred"{
             let cell = self.IngredientTable.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
-            cell.Amount.text = String(self.ingredients[indexPath.row].quantity) + self.ingredients[indexPath.row].units!
+            cell.Amount.text = String(self.ingredients[indexPath.row].quantity) + " " + self.ingredients[indexPath.row].units!
             cell.IngredientLabel.text = self.ingredients[indexPath.row].name!
             return cell
         }
@@ -160,8 +175,26 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
         }
     }
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        if tableView.accessibilityIdentifier == "ingred"{
+            self.IngredientTable.deselectRow(at: indexPath, animated: true)
+            let row = indexPath.row
+            let alert = UIAlertController(title: "Delete Ingredient?", message: "Do you want to delete \(self.ingredients[row].name!)?", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Delete", style: .default, handler:{ a->Void in
+                self.ingredients.remove(at: row)
+                self.IngredientTable.reloadData()
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(action)
+            alert.addAction(cancel)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            
+            
+        }
     }
+
     
 }
