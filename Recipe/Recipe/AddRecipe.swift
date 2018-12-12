@@ -28,7 +28,7 @@ class AddRecipeViewController: UIViewController{
             
             let Ingredient = alertController.textFields?[0].text
             let Amount = alertController.textFields?[1].text
-            self.labelMessage.text = "Ingredient: " + Ingredient! + "Amount: " + Amount!
+            //self.labelMessage.text = "Ingredient: " + Ingredient! + "Amount: " + Amount!
         }
     }
     
