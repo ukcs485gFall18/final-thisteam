@@ -974,34 +974,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJD-0E-V8b">
-                                                    <rect key="frame" x="15" y="0.0" width="54" height="43.666666666666664"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="54" id="4rP-Nd-DHl"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StepText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1U-DN-bev">
-                                                    <rect key="frame" x="77" y="0.0" width="250" height="43.666666666666664"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="StepText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1U-DN-bev">
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YJD-0E-V8b" firstAttribute="centerY" secondItem="TRO-BE-Up5" secondAttribute="centerY" id="0XK-U3-IGh"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="R1U-DN-bev" secondAttribute="trailing" id="9WT-jO-AEk"/>
-                                                <constraint firstItem="YJD-0E-V8b" firstAttribute="leading" secondItem="TRO-BE-Up5" secondAttribute="leadingMargin" id="IJ2-1Y-stb"/>
-                                                <constraint firstItem="YJD-0E-V8b" firstAttribute="baseline" secondItem="R1U-DN-bev" secondAttribute="baseline" id="PnZ-uG-ZW6"/>
-                                                <constraint firstItem="YJD-0E-V8b" firstAttribute="firstBaseline" secondItem="R1U-DN-bev" secondAttribute="firstBaseline" id="paz-Wy-tgR"/>
-                                                <constraint firstItem="YJD-0E-V8b" firstAttribute="top" secondItem="TRO-BE-Up5" secondAttribute="top" id="pej-yF-f2F"/>
-                                                <constraint firstItem="R1U-DN-bev" firstAttribute="leading" secondItem="YJD-0E-V8b" secondAttribute="trailing" constant="8" symbolic="YES" id="rrW-2u-Vwc"/>
+                                                <constraint firstItem="R1U-DN-bev" firstAttribute="top" secondItem="TRO-BE-Up5" secondAttribute="top" id="BvW-Xi-aYL"/>
+                                                <constraint firstAttribute="bottom" secondItem="R1U-DN-bev" secondAttribute="bottom" id="FDj-gu-yR6"/>
+                                                <constraint firstAttribute="trailing" secondItem="R1U-DN-bev" secondAttribute="trailing" id="aIt-ic-2B3"/>
+                                                <constraint firstItem="R1U-DN-bev" firstAttribute="leading" secondItem="TRO-BE-Up5" secondAttribute="leading" id="wHR-UM-SLp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="Num" destination="YJD-0E-V8b" id="Ne3-cP-Ws0"/>
                                             <outlet property="StepText" destination="R1U-DN-bev" id="PYH-Ir-WeX"/>
                                         </connections>
                                     </tableViewCell>
@@ -1200,7 +1187,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nH-Qc-OCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hDI-Yy-64y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="819"/>
+            <point key="canvasLocation" x="1660" y="818.7192118226601"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2gu-6M-f0w">
