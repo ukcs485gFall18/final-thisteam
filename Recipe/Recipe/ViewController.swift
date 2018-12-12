@@ -8,10 +8,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SuperViewController: UIViewController {
     
     public var myPantryModel = pantryModel()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

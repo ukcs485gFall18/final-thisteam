@@ -9,31 +9,60 @@
 
 import Foundation
 import UserNotifications
-
+import CoreData
+import UIKit
 
 class pantryModel{
-    
-    //test pantry
     
     var pantry:[Ingredient] = []
     var filteredPantry:[Ingredient] = []
     
     func load(){
-        print("LOADING")
         
     }
     
     func saveItem(name: String, amount: Double, measure: String, date : Date?){
         if date != nil{
             self.prepareNotification(date: date!, name: name)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let strDate = formatter.string(from: date!)
+            container.performBackgroundTask{ context in
+                Ingredient.createIngredient(with: [name, String(amount), measure, "true", strDate ], in: context)
+            }
+
         }
+        else{
+            Ingredient.createIngredient(with: [name, String(amount), measure, "true", ""], in: moc)
+        }
+        
     }
     
     func updateItem(item: Ingredient){
         
     }
     func deletItem(Item: Ingredient){
-        
+        if Item.expiration != nil{
+            self.removeNotification(Item: Item)
+        }
+    }
+    
+    
+    // https://stackoverflow.com/questions/40562912/usernotifications-cancel-swift3
+    func removeNotification(Item: Ingredient){
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+            var removeThis: [String] = []
+            for notification:UNNotificationRequest in notificationRequests {
+                let date = Item.expiration!
+                let calendar = Calendar.current
+                var components = calendar.dateComponents([.day, .month, .year], from: date as Date)
+                if notification.identifier == Item.name! + String(components.month!) + "/" + String(components.day!) + "/" + String(components.year!) {
+                    removeThis.append(notification.identifier)
+                }
+            }
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: removeThis)
+            
+        }
     }
     
     //https://www.hackingwithswift.com/example-code/arrays/how-to-sort-an-array-using-sort
@@ -65,25 +94,20 @@ class pantryModel{
     
     //https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html
     func prepareNotification(date: Date, name: String){
-        var expireDate = Calendar.current.dateComponents([.year,.month,.day], from: date)
-        //default to notifcations at noon
-        expireDate.hour = 12
-        expireDate.minute = 0
-        expireDate.second = 0
-        
         let content = UNMutableNotificationContent()
-        content.title =  NSString.localizedUserNotificationString(forKey: "Food Expiration Warning!", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "\(name) has expired! Please remove this from your pantry!",arguments: nil)
+        content.title = "Expire Notification"
+        content.body = "Yout \(name) is expired! Please throw it out!"
+        content.sound = UNNotificationSound.default
         
-        let expireTrigger = UNCalendarNotificationTrigger(dateMatching: expireDate, repeats: false)
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.day, .month, .year], from: date as Date)
+        components.hour = 12
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        let request = UNNotificationRequest(identifier: name + String(components.month!) + "/" + String(components.day!) + "/" + String(components.year!), content: content, trigger: trigger)
         
-        let request = UNNotificationRequest(identifier: "expired", content: content, trigger: expireTrigger)
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error : Error?) in
-            if let theError = error {
-                print(theError.localizedDescription)
-            }
+        UNUserNotificationCenter.current().add(request) { (error) in print(error as Any)
         }
+        
         
     }
 

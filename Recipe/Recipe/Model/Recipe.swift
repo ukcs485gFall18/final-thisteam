@@ -17,15 +17,14 @@ import CoreData
 
 class Recipe: NSManagedObject {
      // createRecipe takes in an array of data and assigns it to a variable of type Recipe that is then saved to the device
-    static func createRecipe(with recipeInfo: [String], and recipeImage: UIImage, in moc: NSManagedObjectContext) {
+    static func createRecipe(with recipeInfo: [String], and recipeImage: UIImage?, in moc: NSManagedObjectContext) {
         let recipe = Recipe(context: moc)
-        recipe.id = Int16(recipeInfo[0])!
-        recipe.name = recipeInfo[1]
-        recipe.prepTime = Double(recipeInfo[2])!
-        recipe.cookTime = Double(recipeInfo[3])!
-        recipe.instructions = recipeInfo[4]
-        recipe.rating = Int16(recipeInfo[5])!
-        recipe.image = recipeImage.pngData()
+        recipe.name = recipeInfo[0]
+        recipe.prepTime = Double(recipeInfo[1])!
+        recipe.cookTime = Double(recipeInfo[2])!
+        recipe.instructions = recipeInfo[3]
+        recipe.rating = Int16(recipeInfo[4])!
+        recipe.image = recipeImage?.pngData()
         
         do {
             try moc.save()
@@ -38,8 +37,8 @@ class Recipe: NSManagedObject {
     // filterRecipesByPantryItems lists all recipes saved to the device which are then sorted by by how many ingredients they have in the pantry
     static func filterRecipesByPantryItems(in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-        request.predicate = NSPredicate(format: "YES")
-        request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        request.predicate = NSPredicate(value: true)
+        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             let results = try moc.fetch(request)
             return results
@@ -52,7 +51,7 @@ class Recipe: NSManagedObject {
     static func searchRecipeByName(with name: String, in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "ANY name contains %@", name)
-        request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             let results = try moc.fetch(request)
             return results
@@ -65,7 +64,7 @@ class Recipe: NSManagedObject {
     static func searchRecipeByCategory(with name: String, in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "ANY category.name = %@", name)
-        request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             let results = try moc.fetch(request)
             return results
