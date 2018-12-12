@@ -19,6 +19,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     /******************/
     @IBOutlet weak var RecipeImage: UIImageView!
     @IBOutlet weak var PrepTime: UILabel!
+    @IBOutlet weak var CookTime: UILabel!
     @IBOutlet weak var Temp: UILabel!
     
     @IBOutlet weak var IngredientTable: UITableView!
