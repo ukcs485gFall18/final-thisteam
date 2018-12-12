@@ -55,9 +55,9 @@ class Recipe: NSManagedObject {
     static func filterRecipesByPantryItems(in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(value: true)
-        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
-            let results = try moc.fetch(request)
+            var results = try moc.fetch(request)
+            results.sort(by: {$0.uses!.count > $1.uses!.count})
             return results
         } catch {
             throw error
@@ -70,7 +70,8 @@ class Recipe: NSManagedObject {
         request.predicate = NSPredicate(format: "ANY name contains %@", name)
         //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
-            let results = try moc.fetch(request)
+            var results = try moc.fetch(request)
+            results.sort(by: {$0.uses!.count > $1.uses!.count})
             return results
         } catch {
             throw error
@@ -83,7 +84,8 @@ class Recipe: NSManagedObject {
         request.predicate = NSPredicate(format: "ANY category.name = %@", name)
         //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
-            let results = try moc.fetch(request)
+            var results = try moc.fetch(request)
+            results.sort(by: {$0.uses!.count > $1.uses!.count})
             return results
         } catch {
             throw error
