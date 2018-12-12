@@ -39,6 +39,8 @@ class Ingredient: NSManagedObject {
         ingredient.units = ingredientInfo[2]
         ingredient.inPantry = Bool(ingredientInfo[3])!
         
+        
+        
         // Use dateFormatter to convert string to Date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

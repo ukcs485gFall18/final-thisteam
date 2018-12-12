@@ -41,7 +41,11 @@ class CookbookTableViewController : UITableViewController {
         
         //if the recipe has a custom image, set it, otherwise maintain default image (defaultRecipeImage.png)
         do {
-            cell.CellImage.image = try UIImage(data: Recipe.filterRecipesByPantryItems(in: moc)[indexPath.row].image!)
+            if (try Recipe.filterRecipesByPantryItems(in: moc)[indexPath.row].image == nil) {
+                cell.CellImage.image = UIImage(named: "defaultImage")
+            } else {
+                cell.CellImage.image = try UIImage(data: Recipe.filterRecipesByPantryItems(in: moc)[indexPath.row].image!)
+            }
         } catch {
             print("Error!")
         }
