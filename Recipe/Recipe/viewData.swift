@@ -11,8 +11,7 @@ import UIKit
 
 class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
-    let loopingMargin = 50    
-    @IBOutlet weak var name:UILabel!
+    let loopingMargin = 50
     @IBOutlet weak var date:UILabel!
     @IBOutlet weak var measure:UILabel!
     @IBOutlet weak var amount:UILabel!
@@ -30,7 +29,7 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
         self.updateMeasure.delegate = self
         self.updateMeasure.dataSource = self
         datePicker.datePickerMode = UIDatePicker.Mode.date
-        name.text = ingrendients!.name!
+        self.title = ingrendients!.name!
         amount.text = String(ingrendients!.quantity)
         measure.text = ingrendients!.units!.capitalized
         if let d = ingrendients?.expiration{
