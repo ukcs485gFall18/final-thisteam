@@ -69,14 +69,6 @@
                                     <segue destination="BM2-c1-bdS" kind="show" id="uIt-wz-3OV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzx-bb-qRr">
-                                <rect key="frame" x="141" y="168" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="YOe-SL-Oec" kind="show" id="Agy-RD-zVg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -943,7 +935,7 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="avm-8b-qwi" userLabel="InstructionTable">
-                                <rect key="frame" x="17" y="438" width="342" height="241"/>
+                                <rect key="frame" x="17" y="438" width="342" height="290"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hya-Xd-04l">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="21"/>
@@ -1027,21 +1019,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-IC-2zS">
-                                <rect key="frame" x="17" y="687" width="128" height="30"/>
+                                <rect key="frame" x="17" y="736" width="128" height="30"/>
                                 <state key="normal" title="Add Ingredient"/>
                                 <connections>
                                     <action selector="AddIngredient:" destination="BM2-c1-bdS" eventType="touchUpInside" id="FgX-Nj-8fH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaM-VD-fD0">
-                                <rect key="frame" x="254" y="687" width="105" height="30"/>
+                                <rect key="frame" x="254" y="736" width="105" height="30"/>
                                 <state key="normal" title="Add Instruction"/>
                                 <connections>
                                     <action selector="AddInstruction:" destination="BM2-c1-bdS" eventType="touchUpInside" id="eJT-es-6gH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-nM-a7k">
-                                <rect key="frame" x="171" y="687" width="34" height="30"/>
+                                <rect key="frame" x="171" y="736" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="34" id="QfA-6k-yop"/>
                                 </constraints>
@@ -1216,7 +1208,6 @@
         <image name="defaultImage" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EZ1-qs-Dz1"/>
-        <segue reference="N5w-Nj-c33"/>
+        <segue reference="uIt-wz-3OV"/>
     </inferredMetricsTieBreakers>
 </document>

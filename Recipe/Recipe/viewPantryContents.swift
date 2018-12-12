@@ -23,6 +23,10 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
     var sortOn:String = String()
     var selected:Ingredient? = nil
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.myTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myTable.dataSource = self
@@ -165,6 +169,7 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
         if let destination = segue.destination as? viewData{
             destination.ingrendients = self.selected!
             destination.model = self.model
+            destination.newingred = self.selected!
         }
     }
 

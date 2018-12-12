@@ -20,6 +20,7 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     var pantryData:[[String]] = [[String()]]
     var model:pantryModel = pantryModel()
     var ingrendients:Ingredient? = nil
+    var newingred:Ingredient? = nil
     
     @IBOutlet weak var onSwitch: UISwitch!
     
@@ -94,9 +95,10 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     @IBAction func deleteRecord(_ sender: Any){
-        model.deletItem(Item: ingrendients!)
+        self.model.deletItem(Item: ingrendients!)
         let alert = UIAlertController(title: "Delete Status", message: "Successfully deleted \(ingrendients!.name!) from the pantry", preferredStyle: .alert)
         let okay = UIAlertAction(title:"Okay", style: .default,handler: { (alertAction) -> Void in      self.dismiss(animated: true, completion: nil)
+            
             self.navigationController?.popViewController(animated: true)
         })
         alert.addAction(okay)
@@ -104,7 +106,18 @@ class viewData: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     @IBAction func updateRecord(_ sender: Any){
-        model.updateItem(item: ingrendients!)
+        if self.onSwitch.isOn{
+            self.newingred?.expiration = self.datePicker.date
+        }
+        else{
+            self.newingred?.expiration = nil
+        }
+        let first = pantryData[0][updateMeasure.selectedRow(inComponent: 0) % 100]
+        let third = pantryData[2][updateMeasure.selectedRow(inComponent: 2) % 100]
+        let amount = Double(first)! + Double(third)!/100
+        self.newingred?.quantity = amount
+        
+        self.model.updateItem(itemNew: newingred!, itemOld: ingrendients!)
         let alert = UIAlertController(title: "Save Status", message: "Successfully updated \(ingrendients!.name!) to the pantry", preferredStyle: .alert)
         let okay = UIAlertAction(title:"Okay", style: .default,handler: { (alertAction) -> Void in      self.dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)

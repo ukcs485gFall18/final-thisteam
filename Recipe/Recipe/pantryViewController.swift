@@ -35,7 +35,7 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
         for i in arr{
             arrStr.append(String(i))
         }
-        //
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
 
         self.view.addGestureRecognizer(tap)
@@ -44,7 +44,7 @@ class pantryViewController : UIViewController, UIPickerViewDelegate, UIPickerVie
                            ["."],
                            arrStr,
                            ["Gallon", "Pound", "Cup", "Tablespoon",
-                            "Teaspoon", "Ounce"]
+                            "Teaspoon", "Ounce", "Unit"]
             ]
         self.setupPicks()
         self.pantryQuantity.selectRow(50, inComponent: 0, animated: false)
