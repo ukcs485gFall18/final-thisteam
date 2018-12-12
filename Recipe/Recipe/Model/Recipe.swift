@@ -25,8 +25,13 @@ class Recipe: NSManagedObject {
         recipe.instructions = recipeInfo[3]
         recipe.image = recipeImage?.pngData()
         
+        // Updated to save ingredients when adding them to a recipe
         for ingredient in ingredients {
-            recipe.addToUses(ingredient)
+            do {
+                try recipe.addToUses(Ingredient.createOrFindRecipeIngredient(with: ingredient, in: moc))
+            } catch {
+                print("Error saving data!")
+            }
         }
         
         do {
