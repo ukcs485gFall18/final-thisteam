@@ -19,17 +19,6 @@ class SuperViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.myPantryModel.load()
-        container.performBackgroundTask { context in
-            let recipeData = ["vienna sausages", "12.0", "30.0", "Open the can and voila! It's ready"]
-            let ingredient1 = Ingredient(context: moc)
-            ingredient1.name = "candy"
-            ingredient1.inPantry = true
-            ingredient1.expiration = Date()
-            ingredient1.quantity = 12
-            ingredient1.units = "handfuls"
-            let ingredients = [ingredient1]
-            Recipe.createRecipe(with: recipeData, using: ingredients, and: nil, in: context)
-        }
     }
 
     
