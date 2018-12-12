@@ -52,4 +52,18 @@ class Ingredient: NSManagedObject {
             print("Error saving data!")
         }
     }
+    
+    static func updateIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", ingredientInfo[0])
+        do {
+            let result = try moc.fetch(request)
+            result[1].quantity = Double(ingredientInfo[1])!
+            result[2].units = ingredientInfo[2]
+            result[3].inPantry = Bool(ingredientInfo[3])!
+            try moc.save()
+        } catch {
+            print("Error saving data!")
+        }
+    }
 }
