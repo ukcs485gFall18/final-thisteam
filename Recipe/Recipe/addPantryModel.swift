@@ -18,7 +18,19 @@ class pantryModel{
     var filteredPantry:[Ingredient] = []
     
     func load(){
-        
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        request.predicate = NSPredicate(format: "inPantry == YES")
+        request.sortDescriptors = [NSSortDescriptor(key: "expiration", ascending: true)]
+        do {
+            let results = try moc.fetch(request)
+            pantry = results
+        } catch {
+            print("error")
+        }
+        for i in pantry{
+            print(i.name)
+        }
+
     }
     
     func saveItem(name: String, amount: Double, measure: String, date : Date?){
@@ -30,7 +42,6 @@ class pantryModel{
             container.performBackgroundTask{ context in
                 Ingredient.createIngredient(with: [name, String(amount), measure, "true", strDate ], in: context)
             }
-
         }
         else{
             Ingredient.createIngredient(with: [name, String(amount), measure, "true", ""], in: moc)
