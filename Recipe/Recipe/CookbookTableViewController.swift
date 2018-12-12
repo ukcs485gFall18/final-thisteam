@@ -2,7 +2,7 @@
 //  CookbookTableViewController.swift
 //  Recipe
 //
-//  Created by Jones, Caitlin on 11/4/18.
+//  Created by Jones, Caitlin + Brassfield, Adam on 11/4/18.
 //  Copyright © 2018 Jones, Caitlin N. All rights reserved.
 // https://www.youtube.com/watch?v=-tRQmVkrfHc
 // https://stackoverflow.com/questions/26158768/how-to-get-textlabel-of-selected-row-in-swift

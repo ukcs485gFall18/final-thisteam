@@ -37,8 +37,8 @@ class Recipe: NSManagedObject {
     // filterRecipesByPantryItems lists all recipes saved to the device which are then sorted by by how many ingredients they have in the pantry
     static func filterRecipesByPantryItems(in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-        request.predicate = NSPredicate(format: "YES")
-        request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        request.predicate = NSPredicate(value: true)
+        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             let results = try moc.fetch(request)
             return results
@@ -51,7 +51,7 @@ class Recipe: NSManagedObject {
     static func searchRecipeByName(with name: String, in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "ANY name contains %@", name)
-        request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             let results = try moc.fetch(request)
             return results
@@ -64,7 +64,7 @@ class Recipe: NSManagedObject {
     static func searchRecipeByCategory(with name: String, in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "ANY category.name = %@", name)
-        request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             let results = try moc.fetch(request)
             return results
