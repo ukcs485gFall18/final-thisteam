@@ -13,10 +13,7 @@ import Foundation
 import UIKit
 
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    /******************/
-    //temp! take out later
-    //var items = ["one","two","three"]
-    /******************/
+    
     @IBOutlet weak var RecipeImage: UIImageView!
     @IBOutlet weak var PrepTime: UILabel!
     @IBOutlet weak var CookTime: UILabel!
@@ -31,10 +28,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     
     //needed to recieve recipe name from CookBookTableViewController
     var recipeName:String = ""
+    var MaxInstructionCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Temp.isHidden = true
         //set the recipe name in the viewController's navigation bar
         self.title = recipeName
         
@@ -110,6 +108,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             view?.StepCount = Int(currCell.Num.text!)!
             
             view?.title = self.title
+            view?.StepCountMax = MaxInstructionCount
             
         }
     }

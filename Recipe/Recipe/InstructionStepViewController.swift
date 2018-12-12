@@ -4,8 +4,8 @@
 //
 //  Created by Jones, Caitlin on 11/4/18.
 //  Copyright © 2018 Jones, Caitlin N. All rights reserved.
-//https://stackoverflow.com/questions/28468906/how-do-i-change-the-text-of-a-button-when-it-is-clicked-swift
-//https://stackoverflow.com/questions/18753864/ios-7-back-button-symbol
+// https://stackoverflow.com/questions/28468906/how-do-i-change-the-text-of-a-button-when-it-is-clicked-swift
+// https://stackoverflow.com/questions/18753864/ios-7-back-button-symbol
 
 import Foundation
 import UIKit
@@ -20,7 +20,7 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
         
         //Enable or Disable buttons
         if(StepCount == 1){ Prev.isEnabled = false }
-        if(StepCount < 10){ Next.isEnabled = true }   ///Change values
+        if(StepCount < StepCountMax){ Next.isEnabled = true }   ///Change values
 
         
         
@@ -32,7 +32,7 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
         StepCountLabel.text = "Step \(StepCount)"
         
         //Enable or disable buttons
-        if(StepCount == 10){ Next.isEnabled = false }
+        if(StepCount == StepCountMax){ Next.isEnabled = false }
         if(StepCount > 1){ Prev.isEnabled = true } //Change values
         
         
@@ -45,6 +45,7 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
     //needed for Segue
     var StepText:String = ""
     var StepCount: Int = 1
+    var StepCountMax: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,22 +64,31 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
     }
     
     
-    
-    //EDIT THESE !!!!!!!!!!!
-    var items = ["one","two","three"]
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
-            cell.IngredientLabel.text = self.items[indexPath.row]
-            cell.Amount.text = "2 tsp"
-            /* if ingredient in pantry: change image to checkmark
-             cell.InPantryImg
-             */
-            return cell
-        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
+        do {
+            let currentRecipe = try Recipe.searchRecipeByName(with: self.title!, in: moc)[0]
+            let ingredients = try Ingredient.findRecipeIngredients(for: currentRecipe.name!, in: moc)
+            cell.IngredientLabel.text = ingredients[indexPath.row].name!
+            cell.Amount.text = String(ingredients[indexPath.row].quantity) + " " + ingredients[indexPath.row].units!
+        } catch {
+            print("Error")
+        }
+        /* if ingredient in pantry: change image to checkmark
+         cell.InPantryImg
+         */
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        var count = 0
+        do {
+            let currentRecipe = try Recipe.searchRecipeByName(with: self.title!, in: moc)[0]
+            let ingredients = try Ingredient.findRecipeIngredients(for: currentRecipe.name!, in: moc)
+            count = ingredients.count
+        } catch {
+            print("Error")
+        }
+        return count
     }
-    
 }
