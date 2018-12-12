@@ -13,10 +13,7 @@ import Foundation
 import UIKit
 
 class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    /******************/
-    //temp! take out later
-    var items = ["one","two","three"]
-    /******************/
+    
     @IBOutlet weak var RecipeImage: UIImageView!
     @IBOutlet weak var PrepTime: UILabel!
     @IBOutlet weak var CookTime: UILabel!
@@ -30,10 +27,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     
     //needed to recieve recipe name from CookBookTableViewController
     var recipeName:String = ""
+    var MaxInstructionCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Temp.isHidden = true
         //set the recipe name in the viewController's navigation bar
         self.title = recipeName
         
@@ -64,7 +62,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             do {
                 let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
                 let instructions = currentRecipe.instructions!.components(separatedBy: CharacterSet.newlines)
-                cell.StepText.text = instructions[0]
+                cell.StepText.text = instructions[indexPath.row]
             } catch  {
                 
             }
@@ -75,7 +73,32 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        var count = 0
+        if( tableView == IngredientTable){
+            do {
+                let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+                let ingredients = try Ingredient.findRecipeIngredients(for: currentRecipe.name!, in: moc)
+                count = ingredients.count
+            } catch {
+                print("Error")
+            }
+        }else{
+            do {
+                let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+                let instructions = currentRecipe.instructions!.components(separatedBy: CharacterSet.newlines)
+                
+                count = instructions.reduce(into: 0){ (count, letter) in
+                    if letter == "\n" {
+                        MaxInstructionCount += 1
+                    }
+                }
+                count = MaxInstructionCount
+                
+            } catch  {
+                
+            }
+        }
+        return count
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,6 +111,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             view?.StepCount = Int(currCell.Num.text!)!
             
             view?.title = self.title
+            view?.StepCountMax = MaxInstructionCount
             
         }
     }

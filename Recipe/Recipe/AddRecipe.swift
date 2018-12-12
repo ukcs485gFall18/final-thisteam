@@ -20,6 +20,7 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var NameEdit: UITextField!
     @IBOutlet weak var PrepTimeEdit: UITextField!
     @IBOutlet weak var CookTimeEdit: UITextField!
+    @IBOutlet weak var TempLabel: UILabel!
     @IBOutlet weak var TempEdit: UITextField!
     @IBOutlet weak var IngredientTable: UITableView!
     @IBOutlet weak var InstructionTable: UITableView!
@@ -131,6 +132,10 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
     var nameFromSegue = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TempEdit.isHidden = true
+        TempLabel.isHidden = true
+        
         
         if(nameFromSegue != ""){
             NameEdit.text = nameFromSegue
