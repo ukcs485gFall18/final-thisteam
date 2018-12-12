@@ -47,15 +47,27 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         if( tableView == IngredientTable){
             let cell = self.IngredientTable.dequeueReusableCell(withIdentifier: "IngredientCell") as! IngredientCell
-            cell.IngredientLabel.text = self.items[indexPath.row]
-            cell.Amount.text = "2 tsp"
+            do {
+                let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+                let ingredients = try Ingredient.findRecipeIngredients(for: currentRecipe.name!, in: moc)
+                cell.IngredientLabel.text = ingredients[indexPath.row].name!
+                cell.Amount.text = String(ingredients[indexPath.row].quantity) + " " + ingredients[indexPath.row].units!
+            } catch {
+                print("Error")
+            }
             /* if ingredient in pantry: change image to checkmark
                 cell.InPantryImg
             */
             return cell
         }else{
             let cell = self.InstructionTable.dequeueReusableCell(withIdentifier: "InstructionCell") as! InstructionCell
-            cell.StepText.text = self.items[indexPath.row]
+            do {
+                let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+                let instructions = currentRecipe.instructions!.components(separatedBy: CharacterSet.newlines)
+                cell.StepText.text = instructions[0]
+            } catch  {
+                
+            }
             cell.Num.text = String(indexPath.row + 1)
             return cell
         }

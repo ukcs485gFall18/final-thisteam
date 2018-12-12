@@ -31,6 +31,17 @@ class Ingredient: NSManagedObject {
         }
     }
     
+    static func findIngredientByName(_ name: String, in moc: NSManagedObjectContext) throws -> Ingredient {
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        do {
+            let results = try moc.fetch(request)
+            return results[0]
+        } catch {
+            throw error
+        }
+    }
+    
     // createIngredient takes in an array of data and assigns it to a variable of type Ingredient that is then saved to the device
     static func createIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
         let ingredient = Ingredient(context: moc)
@@ -57,7 +68,7 @@ class Ingredient: NSManagedObject {
         request.predicate = NSPredicate(format: "name = %@", ingredient.name!)
         do {
             let results = try moc.fetch(request)
-            if results.count > 1 {
+            if results.count > 0 {
                 return ingredient
             }
         } catch {
@@ -75,6 +86,17 @@ class Ingredient: NSManagedObject {
             print("Error saving data!")
         }
         return newIngredient
+    }
+    
+    static func findRecipeIngredients(for recipeName: String, in moc: NSManagedObjectContext) throws -> [Ingredient] {
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        request.predicate = NSPredicate(format: "ANY usedIn.name = %@", recipeName)
+        do {
+            let request = try moc.fetch(request)
+            return request
+        } catch {
+            throw error
+        }
     }
     
     static func updateIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
