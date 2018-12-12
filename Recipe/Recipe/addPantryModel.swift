@@ -23,13 +23,11 @@ class pantryModel{
         request.sortDescriptors = [NSSortDescriptor(key: "expiration", ascending: true)]
         do {
             let results = try moc.fetch(request)
-            pantry = results
+            self.pantry = results
         } catch {
             print("error")
         }
-        for i in pantry{
-            print(i.name)
-        }
+
 
     }
     
@@ -42,9 +40,21 @@ class pantryModel{
             container.performBackgroundTask{ context in
                 Ingredient.createIngredient(with: [name, String(amount), measure, "true", strDate ], in: context)
             }
+            
         }
         else{
             Ingredient.createIngredient(with: [name, String(amount), measure, "true", ""], in: moc)
+        }
+        let addition = Ingredient(context: moc)
+        addition.name = name
+        addition.quantity = amount
+        addition.units = measure
+        addition.expiration = date
+        self.pantry.append(addition)
+    
+        //afraid to delete b/c it is working
+        for i in self.pantry{
+            print(i.name as Any)
         }
         
     }

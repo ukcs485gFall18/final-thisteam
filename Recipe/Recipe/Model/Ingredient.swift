@@ -18,6 +18,7 @@ import CoreData
 
 class Ingredient: NSManagedObject {
     // loadPantry lists all ingredients where the items are in the pantry, sorted by expiration
+    // copied into pantry model, some reason it only works there 
     static func loadPantry(in moc: NSManagedObjectContext) throws -> [Ingredient] {
         let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
         request.predicate = NSPredicate(format: "inPantry == YES")

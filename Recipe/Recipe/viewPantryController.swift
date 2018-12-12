@@ -48,13 +48,27 @@ class viewPantryContentsController: UIViewController, UITableViewDataSource,  UI
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isSearching = false
     }
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        model.filteredPantry = model.pantry.filter{$0.name!.contains(searchText)}
+        
+        self.model.filteredPantry = self.model.pantry.filter{$0.name!.contains(searchText) || $0.name!.contains(searchText.lowercased())}
         if searchBar.text?.count != 0{
             isSearching = true
         }
         else{
             isSearching = false
+        }
+        self.model.filteredPantry = self.model.filteredPantry.sorted{(lhs, rhs)->Bool in
+            if lhs.name!.hasPrefix(searchText) || lhs.name!.hasPrefix(searchText.lowercased()){
+                return true
+            }
+            if rhs.name!.hasPrefix(searchText) || lhs.name!.hasPrefix(searchText.lowercased()){
+                return true
+            }
+            else{
+                return false
+            }
         }
         self.myTable.reloadData()
         
