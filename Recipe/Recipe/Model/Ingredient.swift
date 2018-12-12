@@ -31,7 +31,6 @@ class Ingredient: NSManagedObject {
         }
     }
     
-    
     // createIngredient takes in an array of data and assigns it to a variable of type Ingredient that is then saved to the device
     static func createIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
         let ingredient = Ingredient(context: moc)
@@ -40,8 +39,6 @@ class Ingredient: NSManagedObject {
         ingredient.units = ingredientInfo[2]
         ingredient.inPantry = Bool(ingredientInfo[3])!
         
-        
-    
         // Use dateFormatter to convert string to Date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -52,6 +49,32 @@ class Ingredient: NSManagedObject {
         } catch {
             print("Error saving data!")
         }
+    }
+    
+    // Searches for existing ingredients by name. If none found, it creates a new ingredient
+    static func createOrFindRecipeIngredient(with ingredient: Ingredient, in moc: NSManagedObjectContext) throws -> Ingredient {
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", ingredient.name!)
+        do {
+            let results = try moc.fetch(request)
+            if results.count > 1 {
+                return ingredient
+            }
+        } catch {
+            throw error
+        }
+        
+        let newIngredient = Ingredient(context: moc)
+        newIngredient.name = ingredient.name
+        newIngredient.quantity = ingredient.quantity
+        newIngredient.units = ingredient.units
+        newIngredient.inPantry = ingredient.inPantry
+        do {
+            try moc.save()
+        } catch {
+            print("Error saving data!")
+        }
+        return newIngredient
     }
     
     static func updateIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {

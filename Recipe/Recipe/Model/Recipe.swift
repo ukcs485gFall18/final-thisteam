@@ -25,8 +25,13 @@ class Recipe: NSManagedObject {
         recipe.instructions = recipeInfo[3]
         recipe.image = recipeImage?.pngData()
         
+        // Updated to save ingredients when adding them to a recipe
         for ingredient in ingredients {
-            recipe.addToUses(ingredient)
+            do {
+                try recipe.addToUses(Ingredient.createOrFindRecipeIngredient(with: ingredient, in: moc))
+            } catch {
+                print("Error saving data!")
+            }
         }
         
         do {
@@ -67,8 +72,7 @@ class Recipe: NSManagedObject {
     // searchRecipeByName lists all recipes whose names contain a string passed to the function
     static func searchRecipeByName(with name: String, in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-        request.predicate = NSPredicate(format: "ANY name contains %@", name)
-        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
+        request.predicate = NSPredicate(format: "name contains %@", name)
         do {
             var results = try moc.fetch(request)
             results.sort(by: {$0.uses!.count > $1.uses!.count})
@@ -82,7 +86,6 @@ class Recipe: NSManagedObject {
     static func searchRecipeByCategory(with name: String, in moc: NSManagedObjectContext) throws -> [Recipe] {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "ANY category.name = %@", name)
-        //request.sortDescriptors = [NSSortDescriptor(key: "(ingredient.inPantry == YES).count", ascending: false)]
         do {
             var results = try moc.fetch(request)
             results.sort(by: {$0.uses!.count > $1.uses!.count})
