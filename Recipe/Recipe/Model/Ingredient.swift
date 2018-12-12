@@ -30,7 +30,6 @@ class Ingredient: NSManagedObject {
         }
     }
     
-    
     // createIngredient takes in an array of data and assigns it to a variable of type Ingredient that is then saved to the device
     static func createIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
         let ingredient = Ingredient(context: moc)
@@ -39,8 +38,6 @@ class Ingredient: NSManagedObject {
         ingredient.units = ingredientInfo[2]
         ingredient.inPantry = Bool(ingredientInfo[3])!
         
-        
-    
         // Use dateFormatter to convert string to Date
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -66,4 +63,5 @@ class Ingredient: NSManagedObject {
             print("Error saving data!")
         }
     }
+
 }
