@@ -19,3 +19,40 @@ import CoreData
 // Container & context used throughout app
 let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
 var moc: NSManagedObjectContext = container.viewContext
+
+func setDummyData() {
+    /*
+    let ingredient1 = ["Banana", "3", "oz", "true", "2018-12-17"]
+    let ingredient2 = ["Oatmeal", "2", "cups", "true", "2019-3-30"]
+    let ingredient3 = ["Peanut Butter", "3", "oz", "true", "2019-5-27"]
+    container.performBackgroundTask { container in
+        Ingredient.createIngredient(with: ingredient1, in: moc)
+        Ingredient.createIngredient(with: ingredient1, in: moc)
+        Ingredient.createIngredient(with: ingredient1, in: moc)
+ 
+    }*/
+        let ingredient1 = Ingredient(context: moc)
+        ingredient1.name = "Banana"
+        ingredient1.quantity = 3
+        ingredient1.units = "oz"
+        ingredient1.inPantry = true
+        ingredient1.expiration = Date()
+        
+        let ingredient2 = Ingredient(context: moc)
+        ingredient2.name = "Oatmeal"
+        ingredient2.quantity = 2
+        ingredient2.units = "cups"
+        ingredient2.inPantry = true
+        ingredient2.expiration = Date()
+        
+        let ingredient3 = Ingredient(context: moc)
+        ingredient3.name = "Peanut Butter"
+        ingredient3.quantity = 3
+        ingredient3.units = "oz"
+        ingredient3.inPantry = true
+        ingredient3.expiration = Date()
+        
+        let ingredients = [ingredient1, ingredient2, ingredient3]
+        let recipe = ["Peanut Butter Banana Oatmeal", "0", "5", "Cook oatmeal, add additional ingredients"]
+        Recipe.createRecipe(with: recipe, using: ingredients, and: nil, in: moc)
+}
