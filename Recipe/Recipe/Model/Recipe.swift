@@ -36,6 +36,20 @@ class Recipe: NSManagedObject {
         }
     }
     
+    static func updateRecipe(with recipeInfo: [String], in moc: NSManagedObjectContext) {
+        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", recipeInfo[0])
+        do {
+            let result = try moc.fetch(request)
+            result[0].prepTime = Double(recipeInfo[1])!
+            result[0].cookTime = Double(recipeInfo[2])!
+            result[0].instructions = recipeInfo[3]
+            try moc.save()
+        } catch {
+            print("Error saving data!")
+        }
+    }
+    
     
     // filterRecipesByPantryItems lists all recipes saved to the device which are then sorted by by how many ingredients they have in the pantry
     static func filterRecipesByPantryItems(in moc: NSManagedObjectContext) throws -> [Recipe] {
