@@ -22,8 +22,8 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
         if(StepCount == 1){ Prev.isEnabled = false }
         if(StepCount < StepCountMax){ Next.isEnabled = true }   ///Change values
 
-        
-        
+        StepTextView.text = instructions[StepCount-1]
+
     }
     
     @IBOutlet weak var Next: UIButton!
@@ -34,7 +34,7 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
         //Enable or disable buttons
         if(StepCount == StepCountMax){ Next.isEnabled = false }
         if(StepCount > 1){ Prev.isEnabled = true } //Change values
-        
+        StepTextView.text = instructions[StepCount-1]
         
     }
     
@@ -46,6 +46,9 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
     var StepText:String = ""
     var StepCount: Int = 1
     var StepCountMax: Int = 1
+    var currentRecipe = Recipe()
+    var instructions = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +61,17 @@ class InstructionStepViewController: UIViewController, UITableViewDataSource, UI
         StepTextView.text = StepText
         StepCountLabel.text = "Step \(StepCount)"
         if(StepCount == 1){ Prev.isEnabled = false}
+        tableView.rowHeight = 50.0
         
         //Set the information based on the cell clicked in the ViewRecipeViewController's InstructionTable
+
+        do {
+            currentRecipe = try Recipe.searchRecipeByName(with: self.title!, in: moc)[0]
+            instructions = currentRecipe.instructions!.components(separatedBy: "$")
+        }
+        catch{
+            print()
+        }
         
     }
     

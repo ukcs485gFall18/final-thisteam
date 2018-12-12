@@ -25,21 +25,21 @@ func setDummyData() {
         ingredient1.name = "Banana"
         ingredient1.quantity = 3
         ingredient1.units = "oz"
-        ingredient1.inPantry = true
+        ingredient1.inPantry = false
         ingredient1.expiration = Date()
         
         let ingredient2 = Ingredient(context: moc)
         ingredient2.name = "Oatmeal"
         ingredient2.quantity = 2
         ingredient2.units = "cups"
-        ingredient2.inPantry = true
+        ingredient2.inPantry = false
         ingredient2.expiration = Date()
         
         let ingredient3 = Ingredient(context: moc)
         ingredient3.name = "Peanut Butter"
         ingredient3.quantity = 3
         ingredient3.units = "oz"
-        ingredient3.inPantry = true
+        ingredient3.inPantry = false
         ingredient3.expiration = Date()
         
         let ingredients = [ingredient1, ingredient2, ingredient3]

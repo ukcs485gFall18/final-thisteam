@@ -18,16 +18,26 @@ class pantryModel{
     var filteredPantry:[Ingredient] = []
     
     func load(){
+        var res:[Ingredient] = []
         let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
-        request.predicate = NSPredicate(format: "inPantry == YES")
+        request.predicate = NSPredicate(format: "inPantry == true")
         request.sortDescriptors = [NSSortDescriptor(key: "expiration", ascending: true)]
         do {
             let results = try moc.fetch(request)
-            self.pantry = results
+            res = results
         } catch {
             print("error")
         }
-
+        
+        var second:[Ingredient] = []
+        for i in res{
+            if i.inPantry{
+                second.append(i)
+                print(i.inPantry)
+            }
+        }
+        
+        self.pantry = second
 
     }
     

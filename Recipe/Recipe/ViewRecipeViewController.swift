@@ -33,6 +33,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         Temp.isHidden = true
+        Edit.isHidden = true
         //set the recipe name in the viewController's navigation bar
         self.title = recipeName
         
@@ -41,6 +42,18 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         self.InstructionTable.accessibilityIdentifier = "instruct"
         self.InstructionTable.delegate = self
         self.InstructionTable.dataSource = self
+        self.IngredientTable.rowHeight = 50.0
+        var currentRecipe:Recipe = Recipe()
+        
+        do{
+            currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
+        }
+        catch{
+            print()
+        }
+        self.PrepTime.text = "Prep Time: " + String(currentRecipe.prepTime)
+        self.CookTime.text = "Cook Time: " + String(currentRecipe.cookTime)
+        self.RecipeImage.image = UIImage(data: currentRecipe.image!)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -63,11 +76,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             do {
                 let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
                 let instructions = currentRecipe.instructions!.components(separatedBy: "$")
+                print(instructions)
+                
                 cell.StepText.text = instructions[indexPath.row]
             } catch  {
                 
             }
             cell.Num.text = String(indexPath.row + 1)
+            cell.Num.isHidden = true
             return cell
         }
         
@@ -78,7 +94,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             do {
                 let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
                 let instructions = currentRecipe.instructions!.components(separatedBy: "$")
-                return instructions.count
+                MaxInstructionCount = instructions.count
+                return MaxInstructionCount
             }
             catch{
                 print()

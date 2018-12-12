@@ -90,15 +90,20 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         print("PRESSED")
         var instruct = ""
         for i in instructions{
-            instruct = instruct + " $"
+            instruct = i + "$"
         }
         if instruct.count > 0{
             instruct.removeLast()
             instruct.removeLast()
         }
+        let name = self.NameEdit.text!
+        let prep = self.PrepTimeEdit.text!
+        let cook = self.CookTimeEdit.text!
+        
         container.performBackgroundTask{ context in
-            Recipe.createRecipe(with: [self.NameEdit.text!, self.PrepTimeEdit.text!, self.CookTimeEdit.text!, instruct], using: self.ingredients, and: self.RecipeImage.image, in: context)
+            Recipe.createRecipe(with: [name, prep, cook, instruct], using: self.ingredients, and: self.RecipeImage.image, in: context)
         }
+        self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -151,7 +156,6 @@ class AddRecipeViewController: UIViewController, UITableViewDelegate, UITableVie
         
         TempEdit.isHidden = true
         TempLabel.isHidden = true
-        
         
         if(nameFromSegue != ""){
             NameEdit.text = nameFromSegue

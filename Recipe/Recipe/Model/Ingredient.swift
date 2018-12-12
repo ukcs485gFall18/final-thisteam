@@ -68,7 +68,7 @@ class Ingredient: NSManagedObject {
         newIngredient.name = ingredient.name
         newIngredient.quantity = ingredient.quantity
         newIngredient.units = ingredient.units
-        newIngredient.inPantry = ingredient.inPantry
+        newIngredient.inPantry = false
         do {
             try moc.save()
         } catch {
