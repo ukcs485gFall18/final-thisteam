@@ -53,7 +53,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
         }
         self.PrepTime.text = "Prep Time: " + String(currentRecipe.prepTime)
         self.CookTime.text = "Cook Time: " + String(currentRecipe.cookTime)
-        self.RecipeImage.image = UIImage(data: currentRecipe.image!)
+        if let c = currentRecipe.image{
+            self.RecipeImage.image = UIImage(data: c)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
