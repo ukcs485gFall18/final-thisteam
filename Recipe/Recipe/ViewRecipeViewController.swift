@@ -63,7 +63,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDataSource, UITable
             let cell = self.InstructionTable.dequeueReusableCell(withIdentifier: "InstructionCell") as! InstructionCell
             do {
                 let currentRecipe = try Recipe.searchRecipeByName(with: recipeName, in: moc)[0]
-                cell.StepText.text = currentRecipe.instructions!
+                let instructions = currentRecipe.instructions!.components(separatedBy: CharacterSet.newlines)
+                cell.StepText.text = instructions[0]
             } catch  {
                 
             }

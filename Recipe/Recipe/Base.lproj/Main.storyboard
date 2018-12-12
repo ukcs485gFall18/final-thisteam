@@ -20,84 +20,90 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_edit" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-wP-xi7">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy2-by-i6Z">
-                                <rect key="frame" x="130" y="408" width="114" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Add to myPantry">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gyw-bx-95q" kind="show" identifier="addPantry" id="foF-0i-Jmr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK3-f8-41w">
-                                <rect key="frame" x="134" y="303" width="102" height="30"/>
-                                <state key="normal" title="View myPantry">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="eOu-hH-AIm" kind="show" identifier="viewPantry" id="e7E-WX-icI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-ge-Xfw">
-                                <rect key="frame" x="131" y="513" width="112" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Go to Cookbook">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Y7r-5a-RUw" kind="show" identifier="HomeToCookbook" id="MIW-0s-XFJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce9-yL-UVP">
-                                <rect key="frame" x="128" y="618" width="119" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Add to Cookbook">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BM2-c1-bdS" kind="show" id="uIt-wz-3OV"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myPantry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3Q-tZ-yCB">
-                                <rect key="frame" x="119.00000000000001" y="183" width="134.33333333333337" height="63"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="VBq-eX-U07">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myPantry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3Q-tZ-yCB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="aYe-5N-TGG">
+                                        <rect key="frame" x="0.0" y="345" width="375" height="345"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK3-f8-41w">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="86.333333333333329"/>
+                                                <state key="normal" title="View myPantry">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="eOu-hH-AIm" kind="show" identifier="viewPantry" id="e7E-WX-icI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy2-by-i6Z">
+                                                <rect key="frame" x="0.0" y="86.333333333333371" width="375" height="86.333333333333314"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                                </accessibility>
+                                                <state key="normal" title="Add to myPantry">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="gyw-bx-95q" kind="show" identifier="addPantry" id="foF-0i-Jmr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-ge-Xfw">
+                                                <rect key="frame" x="0.0" y="172.66666666666663" width="375" height="86"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                                </accessibility>
+                                                <state key="normal" title="Go to Cookbook">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Y7r-5a-RUw" kind="show" identifier="HomeToCookbook" id="MIW-0s-XFJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce9-yL-UVP">
+                                                <rect key="frame" x="0.0" y="258.66666666666663" width="375" height="86.333333333333314"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                                </accessibility>
+                                                <state key="normal" title="Add to Cookbook">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="BM2-c1-bdS" kind="show" id="uIt-wz-3OV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="SK3-f8-41w" firstAttribute="centerX" secondItem="aYe-5N-TGG" secondAttribute="centerX" id="HVe-r8-568"/>
+                                            <constraint firstItem="wy2-by-i6Z" firstAttribute="centerX" secondItem="aYe-5N-TGG" secondAttribute="centerX" id="XQp-YP-hcl"/>
+                                            <constraint firstItem="ce9-yL-UVP" firstAttribute="centerX" secondItem="aYe-5N-TGG" secondAttribute="centerX" id="b3f-Yf-8Zk"/>
+                                            <constraint firstItem="LhS-ge-Xfw" firstAttribute="centerX" secondItem="aYe-5N-TGG" secondAttribute="centerX" id="mmB-5c-qEC"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aYe-5N-TGG" firstAttribute="leading" secondItem="VBq-eX-U07" secondAttribute="leading" id="284-7O-Kmr"/>
+                                    <constraint firstAttribute="trailing" secondItem="S3Q-tZ-yCB" secondAttribute="trailing" id="Ts4-17-Ck3"/>
+                                    <constraint firstAttribute="trailing" secondItem="aYe-5N-TGG" secondAttribute="trailing" id="W0x-C7-wQm"/>
+                                    <constraint firstItem="S3Q-tZ-yCB" firstAttribute="leading" secondItem="VBq-eX-U07" secondAttribute="leading" id="sA2-KI-5wd"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ce9-yL-UVP" firstAttribute="top" secondItem="LhS-ge-Xfw" secondAttribute="bottom" constant="75" id="057-O8-XSc"/>
-                            <constraint firstItem="wy2-by-i6Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="0jf-v5-5pM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wy2-by-i6Z" secondAttribute="trailing" constant="131" id="5H3-8E-fkI"/>
-                            <constraint firstItem="wy2-by-i6Z" firstAttribute="top" secondItem="SK3-f8-41w" secondAttribute="bottom" constant="75" id="Dgf-qK-NCO"/>
-                            <constraint firstItem="SK3-f8-41w" firstAttribute="top" secondItem="S3Q-tZ-yCB" secondAttribute="bottom" constant="57" id="H1u-mp-tvU"/>
-                            <constraint firstItem="ce9-yL-UVP" firstAttribute="top" secondItem="LhS-ge-Xfw" secondAttribute="bottom" constant="75" id="HDj-yY-X3Y"/>
-                            <constraint firstItem="S3Q-tZ-yCB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="KEl-5D-9dX"/>
-                            <constraint firstItem="S3Q-tZ-yCB" firstAttribute="centerX" secondItem="SK3-f8-41w" secondAttribute="centerX" constant="1.1666666666666572" id="N34-V3-lcZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SK3-f8-41w" secondAttribute="trailing" id="Q5e-Kd-HF3"/>
-                            <constraint firstItem="SK3-f8-41w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QzP-pf-Har"/>
-                            <constraint firstItem="LhS-ge-Xfw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131" id="SCq-xY-8P5"/>
-                            <constraint firstItem="SK3-f8-41w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="215" id="YDC-tL-Joy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VBq-eX-U07" secondAttribute="trailing" id="DS6-fv-FPY"/>
+                            <constraint firstItem="VBq-eX-U07" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IQX-kj-1dT"/>
                             <constraint firstItem="o6g-wP-xi7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZR2-D9-Z1T"/>
                             <constraint firstItem="o6g-wP-xi7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZTT-4o-3bT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VBq-eX-U07" secondAttribute="bottom" id="bFK-CY-eVf"/>
                             <constraint firstItem="o6g-wP-xi7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="brS-fq-4rP"/>
-                            <constraint firstItem="LhS-ge-Xfw" firstAttribute="top" secondItem="wy2-by-i6Z" secondAttribute="bottom" constant="75" id="dfl-uf-8IK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ce9-yL-UVP" secondAttribute="trailing" constant="128" id="gJO-Ds-kzd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o6g-wP-xi7" secondAttribute="bottom" constant="-34" id="iAf-DL-KNq"/>
-                            <constraint firstItem="S3Q-tZ-yCB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="juc-Jr-Kk1"/>
-                            <constraint firstItem="LhS-ge-Xfw" firstAttribute="top" secondItem="wy2-by-i6Z" secondAttribute="bottom" constant="75" id="nZu-cX-kQ6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LhS-ge-Xfw" secondAttribute="trailing" constant="132" id="o5F-me-dod"/>
-                            <constraint firstItem="ce9-yL-UVP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="p9R-hD-czj"/>
-                            <constraint firstItem="wy2-by-i6Z" firstAttribute="top" secondItem="SK3-f8-41w" secondAttribute="bottom" constant="75" id="xJw-Ia-NrO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ce9-yL-UVP" secondAttribute="bottom" constant="130" id="zog-Ru-jot"/>
+                            <constraint firstItem="VBq-eX-U07" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qax-gN-TFb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
