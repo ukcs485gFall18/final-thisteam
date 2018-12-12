@@ -14,10 +14,6 @@ import UIKit
 
 class pantryModel{
     
-    //test pantry
-    let container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    lazy var moc: NSManagedObjectContext = container.viewContext
-    
     var pantry:[Ingredient] = []
     var filteredPantry:[Ingredient] = []
     
@@ -32,12 +28,12 @@ class pantryModel{
             formatter.dateFormat = "yyyy-MM-dd"
             let strDate = formatter.string(from: date!)
             container.performBackgroundTask{ context in
-                Ingredient.createIngredient(with: [name, String(amount), measure, "YES", strDate ], in: context)
+                Ingredient.createIngredient(with: [name, String(amount), measure, "true", strDate ], in: context)
             }
 
         }
         else{
-            Ingredient.createIngredient(with: [name, String(amount), measure, "YES", ""], in: moc)
+            Ingredient.createIngredient(with: [name, String(amount), measure, "true", ""], in: moc)
         }
         
     }

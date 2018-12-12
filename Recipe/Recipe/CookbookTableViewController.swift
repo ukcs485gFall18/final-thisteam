@@ -13,9 +13,7 @@ import UIKit
 import CoreData
 
 class CookbookTableViewController : UITableViewController {
-    let container: NSPersistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    lazy var moc: NSManagedObjectContext = container.viewContext
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
