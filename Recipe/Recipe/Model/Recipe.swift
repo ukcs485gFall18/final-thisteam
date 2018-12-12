@@ -41,6 +41,7 @@ class Recipe: NSManagedObject {
         }
     }
     
+    // Similar to create recipe, except it searches for an existing recipe and adds the new information to what it finds
     static func updateRecipe(with recipeInfo: [String], in moc: NSManagedObjectContext) {
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", recipeInfo[0])

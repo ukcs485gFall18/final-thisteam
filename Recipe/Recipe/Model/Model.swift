@@ -21,16 +21,6 @@ let container = (UIApplication.shared.delegate as! AppDelegate).persistentContai
 var moc: NSManagedObjectContext = container.viewContext
 
 func setDummyData() {
-    /*
-    let ingredient1 = ["Banana", "3", "oz", "true", "2018-12-17"]
-    let ingredient2 = ["Oatmeal", "2", "cups", "true", "2019-3-30"]
-    let ingredient3 = ["Peanut Butter", "3", "oz", "true", "2019-5-27"]
-    container.performBackgroundTask { container in
-        Ingredient.createIngredient(with: ingredient1, in: moc)
-        Ingredient.createIngredient(with: ingredient1, in: moc)
-        Ingredient.createIngredient(with: ingredient1, in: moc)
- 
-    }*/
         let ingredient1 = Ingredient(context: moc)
         ingredient1.name = "Banana"
         ingredient1.quantity = 3

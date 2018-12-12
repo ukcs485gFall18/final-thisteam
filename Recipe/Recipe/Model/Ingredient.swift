@@ -2,7 +2,7 @@
 //  Ingredient.swift
 //  Recipe
 //
-//  Created by Adam Brassfield on 12/10/18.
+//  Created by Adam Brassfield + Ryan Gaines on 12/10/18.
 //  Copyright © 2018 Jones, Caitlin N. All rights reserved.
 //
 
@@ -26,17 +26,6 @@ class Ingredient: NSManagedObject {
         do {
             let results = try moc.fetch(request)
             return results
-        } catch {
-            throw error
-        }
-    }
-    
-    static func findIngredientByName(_ name: String, in moc: NSManagedObjectContext) throws -> Ingredient {
-        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", name)
-        do {
-            let results = try moc.fetch(request)
-            return results[0]
         } catch {
             throw error
         }
@@ -88,6 +77,7 @@ class Ingredient: NSManagedObject {
         return newIngredient
     }
     
+    // Searches for Ingredients associated with a given recipe name
     static func findRecipeIngredients(for recipeName: String, in moc: NSManagedObjectContext) throws -> [Ingredient] {
         let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
         request.predicate = NSPredicate(format: "ANY usedIn.name = %@", recipeName)
@@ -99,6 +89,7 @@ class Ingredient: NSManagedObject {
         }
     }
     
+    // Similar to create Ingredient, except it searches for an existing ingredient and adds the new information to what it finds
     static func updateIngredient(with ingredientInfo: [String], in moc: NSManagedObjectContext) {
         let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
         request.predicate = NSPredicate(format: "name = %@", ingredientInfo[0])
